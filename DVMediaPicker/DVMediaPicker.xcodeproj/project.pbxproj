@@ -15,7 +15,12 @@
 		167CCD04237571AE00EE03EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCD03237571AE00EE03EC /* main.m */; };
 		167CCD0E237571AE00EE03EC /* DVMediaPickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCD0D237571AE00EE03EC /* DVMediaPickerTests.m */; };
 		167CCD19237571AE00EE03EC /* DVMediaPickerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCD18237571AE00EE03EC /* DVMediaPickerUITests.m */; };
-		167CCD27237571F900EE03EC /* SourceFiles in Resources */ = {isa = PBXBuildFile; fileRef = 167CCD26237571F900EE03EC /* SourceFiles */; };
+		16E99E8223797A420032C67A /* DVMediaPickerContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E7423797A420032C67A /* DVMediaPickerContoller.m */; };
+		16E99E8323797A420032C67A /* DVMediaListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E7623797A420032C67A /* DVMediaListController.m */; };
+		16E99E8523797A420032C67A /* DVAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E7923797A420032C67A /* DVAlbumCell.m */; };
+		16E99E8623797A420032C67A /* DVAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E7A23797A420032C67A /* DVAlbumModel.m */; };
+		16E99E8723797A420032C67A /* DVMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E7C23797A420032C67A /* DVMediaManager.m */; };
+		16E99E8823797A420032C67A /* DVAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E8123797A420032C67A /* DVAssetCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +57,18 @@
 		167CCD14237571AE00EE03EC /* DVMediaPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DVMediaPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		167CCD18237571AE00EE03EC /* DVMediaPickerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DVMediaPickerUITests.m; sourceTree = "<group>"; };
 		167CCD1A237571AE00EE03EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		167CCD26237571F900EE03EC /* SourceFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SourceFiles; path = ../../SourceFiles; sourceTree = "<group>"; };
+		16E99E7423797A420032C67A /* DVMediaPickerContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVMediaPickerContoller.m; sourceTree = "<group>"; };
+		16E99E7523797A420032C67A /* DVMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVMediaManager.h; sourceTree = "<group>"; };
+		16E99E7623797A420032C67A /* DVMediaListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVMediaListController.m; sourceTree = "<group>"; };
+		16E99E7723797A420032C67A /* DVAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVAssetCell.h; sourceTree = "<group>"; };
+		16E99E7923797A420032C67A /* DVAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVAlbumCell.m; sourceTree = "<group>"; };
+		16E99E7A23797A420032C67A /* DVAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVAlbumModel.m; sourceTree = "<group>"; };
+		16E99E7B23797A420032C67A /* DVMediaListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVMediaListController.h; sourceTree = "<group>"; };
+		16E99E7C23797A420032C67A /* DVMediaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVMediaManager.m; sourceTree = "<group>"; };
+		16E99E7D23797A420032C67A /* DVMediaPickerContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVMediaPickerContoller.h; sourceTree = "<group>"; };
+		16E99E7E23797A420032C67A /* DVAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVAlbumModel.h; sourceTree = "<group>"; };
+		16E99E7F23797A420032C67A /* DVAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVAlbumCell.h; sourceTree = "<group>"; };
+		16E99E8123797A420032C67A /* DVAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVAssetCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +119,7 @@
 		167CCCF3237571AD00EE03EC /* DVMediaPicker */ = {
 			isa = PBXGroup;
 			children = (
-				167CCD26237571F900EE03EC /* SourceFiles */,
+				16E99E7323797A420032C67A /* SourceFiles */,
 				167CCCF4237571AD00EE03EC /* AppDelegate.h */,
 				167CCCF5237571AD00EE03EC /* AppDelegate.m */,
 				167CCCF7237571AD00EE03EC /* ViewController.h */,
@@ -133,6 +149,26 @@
 				167CCD1A237571AE00EE03EC /* Info.plist */,
 			);
 			path = DVMediaPickerUITests;
+			sourceTree = "<group>";
+		};
+		16E99E7323797A420032C67A /* SourceFiles */ = {
+			isa = PBXGroup;
+			children = (
+				16E99E7423797A420032C67A /* DVMediaPickerContoller.m */,
+				16E99E7623797A420032C67A /* DVMediaListController.m */,
+				16E99E7523797A420032C67A /* DVMediaManager.h */,
+				16E99E7C23797A420032C67A /* DVMediaManager.m */,
+				16E99E7723797A420032C67A /* DVAssetCell.h */,
+				16E99E8123797A420032C67A /* DVAssetCell.m */,
+				16E99E7923797A420032C67A /* DVAlbumCell.m */,
+				16E99E7F23797A420032C67A /* DVAlbumCell.h */,
+				16E99E7A23797A420032C67A /* DVAlbumModel.m */,
+				16E99E7E23797A420032C67A /* DVAlbumModel.h */,
+				16E99E7B23797A420032C67A /* DVMediaListController.h */,
+				16E99E7D23797A420032C67A /* DVMediaPickerContoller.h */,
+			);
+			name = SourceFiles;
+			path = ../../SourceFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +277,6 @@
 				167CCD01237571AE00EE03EC /* LaunchScreen.storyboard in Resources */,
 				167CCCFE237571AE00EE03EC /* Assets.xcassets in Resources */,
 				167CCCFC237571AD00EE03EC /* Main.storyboard in Resources */,
-				167CCD27237571F900EE03EC /* SourceFiles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,8 +301,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16E99E8523797A420032C67A /* DVAlbumCell.m in Sources */,
+				16E99E8823797A420032C67A /* DVAssetCell.m in Sources */,
 				167CCCF9237571AD00EE03EC /* ViewController.m in Sources */,
+				16E99E8223797A420032C67A /* DVMediaPickerContoller.m in Sources */,
 				167CCD04237571AE00EE03EC /* main.m in Sources */,
+				16E99E8723797A420032C67A /* DVMediaManager.m in Sources */,
+				16E99E8623797A420032C67A /* DVAlbumModel.m in Sources */,
+				16E99E8323797A420032C67A /* DVMediaListController.m in Sources */,
 				167CCCF6237571AD00EE03EC /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
