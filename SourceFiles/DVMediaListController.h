@@ -15,9 +15,6 @@
 
 @end
 
-
 @interface DVCollectionView : UICollectionView
 
 @end
-
-

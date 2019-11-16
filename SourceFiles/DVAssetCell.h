@@ -22,6 +22,7 @@ typedef enum : NSInteger{
 @interface DVAssetCell : UICollectionViewCell
 @property (nonatomic, strong) DVAssetModel *model;
 @property (nonatomic, assign) DVAssetCellType type;
+@property (nonatomic, copy) void(^didSelectPhotoBlock)(BOOL);
 
 @end
 

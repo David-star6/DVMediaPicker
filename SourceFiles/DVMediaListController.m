@@ -9,6 +9,7 @@
 #import "DVMediaListController.h"
 #import "DVAssetCell.h"
 #import "DVAlbumModel.h"
+#import "DVPhotoPreviewController.h"
 
 @interface DVMediaListController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSMutableArray *_models;
@@ -19,7 +20,6 @@
 @end
 
 static CGFloat itemMargin = 5;
-
 
 @implementation DVMediaListController
 
@@ -84,14 +84,28 @@ static CGFloat itemMargin = 5;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DVAssetCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DVAssetCell" forIndexPath:indexPath];
     DVAssetModel * model = _models[indexPath.row];
-    cell.backgroundColor = [UIColor grayColor];
     cell.model = model;
+    __weak typeof(cell) weakCell = cell;
+    __weak typeof(self) weakSelf = self;
+    cell.didSelectPhotoBlock = ^(BOOL isSelected){
+        [weakSelf selectButtonRespond];
+    };
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    DVPhotoPreviewController * photoVc = [[DVPhotoPreviewController alloc] init];
+    photoVc.models = _models;
+    photoVc.currentIndex = indexPath.row;
+    [self.navigationController pushViewController:photoVc animated:true];
+}
+
+#pragma mark -- Click event
+
+- (void)selectButtonRespond{
     
 }
+
 
 #pragma mark -- Private Method
 
@@ -104,3 +118,4 @@ static CGFloat itemMargin = 5;
 
 
 @end
+
