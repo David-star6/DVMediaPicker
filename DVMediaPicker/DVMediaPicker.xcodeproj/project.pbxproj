@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		164BF53B237A82D8005FE578 /* ic_videoSendIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 164BF53A237A82D8005FE578 /* ic_videoSendIcon.png */; };
+		163ED9B12397A771002919C8 /* NSBundle+ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED9B02397A771002919C8 /* NSBundle+ImagePicker.m */; };
+		163ED9B32397ABAA002919C8 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 163ED9B22397ABAA002919C8 /* Resources.bundle */; };
 		164BF540237A964E005FE578 /* DVRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 164BF53F237A964E005FE578 /* DVRequestOperation.m */; };
 		167CCCF6237571AD00EE03EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCCF5237571AD00EE03EC /* AppDelegate.m */; };
 		167CCCF9237571AD00EE03EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCCF8237571AD00EE03EC /* ViewController.m */; };
@@ -47,7 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		164BF53A237A82D8005FE578 /* ic_videoSendIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_videoSendIcon.png; sourceTree = "<group>"; };
+		163ED9AF2397A771002919C8 /* NSBundle+ImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ImagePicker.h"; sourceTree = "<group>"; };
+		163ED9B02397A771002919C8 /* NSBundle+ImagePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ImagePicker.m"; sourceTree = "<group>"; };
+		163ED9B22397ABAA002919C8 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		164BF53E237A964E005FE578 /* DVRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVRequestOperation.h; sourceTree = "<group>"; };
 		164BF53F237A964E005FE578 /* DVRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DVRequestOperation.m; sourceTree = "<group>"; };
 		167CCCF1237571AD00EE03EC /* DVMediaPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVMediaPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,14 +116,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		164BF539237A82D8005FE578 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				164BF53A237A82D8005FE578 /* ic_videoSendIcon.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		167CCCE8237571AD00EE03EC = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +174,7 @@
 		16E99E7323797A420032C67A /* SourceFiles */ = {
 			isa = PBXGroup;
 			children = (
-				164BF539237A82D8005FE578 /* Resources */,
+				163ED9B22397ABAA002919C8 /* Resources.bundle */,
 				16E99E7D23797A420032C67A /* DVMediaPickerContoller.h */,
 				16E99E7423797A420032C67A /* DVMediaPickerContoller.m */,
 				16E99E7B23797A420032C67A /* DVMediaListController.h */,
@@ -202,6 +197,8 @@
 				164BF53F237A964E005FE578 /* DVRequestOperation.m */,
 				16FE0572237FA7C700EDAEDC /* DVProgressView.h */,
 				16FE0573237FA7C700EDAEDC /* DVProgressView.m */,
+				163ED9AF2397A771002919C8 /* NSBundle+ImagePicker.h */,
+				163ED9B02397A771002919C8 /* NSBundle+ImagePicker.m */,
 			);
 			name = SourceFiles;
 			path = ../../SourceFiles;
@@ -310,10 +307,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				164BF53B237A82D8005FE578 /* ic_videoSendIcon.png in Resources */,
 				167CCD01237571AE00EE03EC /* LaunchScreen.storyboard in Resources */,
 				167CCCFE237571AE00EE03EC /* Assets.xcassets in Resources */,
 				167CCCFC237571AD00EE03EC /* Main.storyboard in Resources */,
+				163ED9B32397ABAA002919C8 /* Resources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +339,7 @@
 				16FE056B237FA04E00EDAEDC /* DVPhotoPreviewController.m in Sources */,
 				16E99E8823797A420032C67A /* DVAssetCell.m in Sources */,
 				167CCCF9237571AD00EE03EC /* ViewController.m in Sources */,
+				163ED9B12397A771002919C8 /* NSBundle+ImagePicker.m in Sources */,
 				164BF540237A964E005FE578 /* DVRequestOperation.m in Sources */,
 				16E99E8223797A420032C67A /* DVMediaPickerContoller.m in Sources */,
 				16FE056E237FA08700EDAEDC /* DVVideoPlayerController.m in Sources */,

@@ -26,3 +26,7 @@
 + (BOOL)tz_isRightToLeftLayout;
 @end
 
+@interface UIImage (Bundle)
++ (UIImage *)imageNamedFromBundle:(NSString *)name;
+@end
+

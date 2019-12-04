@@ -11,6 +11,7 @@
 #import "DVAlbumCell.h"
 #import "DVMediaManager.h"
 #import "DVAlbumModel.h"
+#import "NSBundle+ImagePicker.h"
 
 @interface DVMediaPickerContoller ()
 
@@ -192,4 +193,21 @@
 
 @end
 
+
+@implementation UIImage (Bundle)
++ (UIImage *)imageNamedFromBundle:(NSString *)name{
+    NSBundle *imageBundle = [NSBundle imagePickerBundle];
+    name = [name stringByAppendingString:@"@2x"];
+    NSString *imagePath = [imageBundle pathForResource:name ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    if (!image) {
+        // 兼容业务方自己设置图片的方式
+        name = [name stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
+        image = [UIImage imageNamed:name];
+    }
+    NSLog(@"%@",image);
+    return image;
+}
+
+@end
 

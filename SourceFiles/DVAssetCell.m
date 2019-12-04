@@ -7,7 +7,7 @@
 //
 
 #import "DVAssetCell.h"
-
+#import "DVMediaPickerContoller.h"
 
 @interface DVAssetCell()
 @property (nonatomic, weak) UIImageView * imageView;
@@ -52,8 +52,7 @@
 - (UIImageView *)videoImgView{
     if(_videoImgView == nil){
         UIImageView * image = [[UIImageView alloc] init];
-//        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"ic_videoSendIcon" ofType:@"png"];
-//        [image setImage:[UIImage imageWithContentsOfFile:filePath]];
+        [image setImage:[UIImage imageNamedFromBundle:@"ic_videoSendIcon" ]];
         [self.bottomView addSubview:image];
         _videoImgView = image;
     }
@@ -76,7 +75,7 @@
     [super layoutSubviews];
     _imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     _bottomView.frame = CGRectMake(0,  self.frame.size.height - 17, self.frame.size.width, 17);
-//    _videoImgView.frame = CGRectMake(8, 0, 17, 17);
+    _videoImgView.frame = CGRectMake(8, 0, 17, 17);
     
     [self.contentView bringSubviewToFront:_bottomView];
     
