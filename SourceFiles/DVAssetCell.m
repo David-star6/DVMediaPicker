@@ -13,7 +13,7 @@
 @property (nonatomic, weak) UIImageView * imageView;
 @property (nonatomic, weak) UIImageView * videoImgView;
 @property (nonatomic, weak) UIView * bottomView;
-
+@property (nonatomic, weak) UILabel * timerLabel;
 @end
 
 @implementation DVAssetCell
@@ -35,6 +35,7 @@
     } else if (type == DVAssetCellTypeVideo){
         self.bottomView.hidden = NO;
         self.videoImgView.hidden = NO;
+        self.timerLabel.text = _model.timeLength;
     }
 }
 
@@ -70,12 +71,26 @@
     return _bottomView;
 }
 
+- (UILabel *)timerLabel{
+    if(_timerLabel == nil){
+        UILabel * label = [[UILabel alloc] init];
+        label.textColor = [UIColor whiteColor];
+        label.font =  [UIFont systemFontOfSize:12];
+        label.textAlignment = NSTextAlignmentRight;
+        [label sizeToFit];
+        [self.bottomView addSubview:label];
+        _timerLabel = label;
+    }
+    return _timerLabel;
+}
+
 
 - (void)layoutSubviews{
     [super layoutSubviews];
     _imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     _bottomView.frame = CGRectMake(0,  self.frame.size.height - 17, self.frame.size.width, 17);
     _videoImgView.frame = CGRectMake(8, 0, 17, 17);
+    _timerLabel.frame = CGRectMake(self.frame.size.width-54-5, 0, 54, 17);
     
     [self.contentView bringSubviewToFront:_bottomView];
     

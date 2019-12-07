@@ -10,6 +10,8 @@
 #import "DVProgressView.h"
 #import "DVMediaManager.h"
 #import "DVAlbumModel.h"
+#import "DVMediaPickerContoller.h"
+
 
 
 @implementation DVAssetPreviewCell
@@ -216,5 +218,114 @@
     }
     return _scrollView;
 }
+
+@end
+
+@implementation DVVideoPreviewCell;
+
+- (void)configSubviews {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActiveNotification) name:UIApplicationWillResignActiveNotification object:nil];
+}
+
+- (void)configPlayButton {
+    if (_playButton) {
+        [_playButton removeFromSuperview];
+    }
+    _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_playButton setImage:[UIImage imageNamedFromBundle:@"ic_video_play"] forState:UIControlStateNormal];
+    [_playButton setImage:[UIImage imageNamedFromBundle:@"ic_vider_playHL"] forState:UIControlStateHighlighted];
+    [_playButton addTarget:self action:@selector(playButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_playButton];
+}
+
+- (void)setModel:(DVAssetModel *)model {
+    [super setModel:model];
+    [self configMoviePlayer];
+}
+
+- (void)setVideoURL:(NSURL *)videoURL {
+    _videoURL = videoURL;
+    [self configMoviePlayer];
+}
+
+- (void)configMoviePlayer {
+    if (_player) {
+        [_playerLayer removeFromSuperlayer];
+        _playerLayer = nil;
+        [_player pause];
+        _player = nil;
+    }
+    
+    if (self.model && self.model.asset) {
+        [[DVMediaManager shareInstance] getPhotoWithAsset:self.model.asset completion:^(UIImage * _Nonnull photo) {
+             self.cover = photo;
+        } progressHandler:^(double progress, NSError * _Nonnull error, BOOL * _Nonnull stop, NSDictionary * _Nonnull info) {
+            
+        } networkAccessAllowed:true];
+        
+        [[DVMediaManager shareInstance]  getVideoWithAsset:self.model.asset completion:^(AVPlayerItem *playerItem, NSDictionary *info) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self configPlayerWithItem:playerItem];
+            });
+        }];
+    } else {
+        AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:self.videoURL];
+        [self configPlayerWithItem:playerItem];
+    }
+}
+
+- (void)configPlayerWithItem:(AVPlayerItem *)playerItem {
+    self.player = [AVPlayer playerWithPlayerItem:playerItem];
+    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+    self.playerLayer.backgroundColor = [UIColor blackColor].CGColor;
+    self.playerLayer.frame = self.bounds;
+    [self.layer addSublayer:self.playerLayer];
+    [self configPlayButton];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pausePlayerAndShowNaviBar) name:AVPlayerItemDidPlayToEndTimeNotification object:self.player.currentItem];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _playerLayer.frame = self.bounds;
+    _playButton.frame = CGRectMake(0, 64, self.frame.size.width, self.frame.size.height - 64 - 44);
+}
+
+- (void)photoPreviewCollectionViewDidScroll {
+    if (_player && _player.rate != 0.0) {
+        [self pausePlayerAndShowNaviBar];
+    }
+}
+
+- (void)appWillResignActiveNotification {
+    if (_player && _player.rate != 0.0) {
+        [self pausePlayerAndShowNaviBar];
+    }
+}
+
+- (void)playButtonClick {
+    CMTime currentTime = _player.currentItem.currentTime;
+    CMTime durationTime = _player.currentItem.duration;
+    if (_player.rate == 0.0f) {
+        if (currentTime.value == durationTime.value) [_player.currentItem seekToTime:CMTimeMake(0, 1)];
+        [_player play];
+        [_playButton setImage:nil forState:UIControlStateNormal];
+        [UIApplication sharedApplication].statusBarHidden = YES;
+        if (self.singleTapGestureBlock) {
+            self.singleTapGestureBlock();
+        }
+    } else {
+        [self pausePlayerAndShowNaviBar];
+    }
+}
+
+- (void)pausePlayerAndShowNaviBar {
+    [_player pause];
+    [_playButton setImage:[UIImage imageNamedFromBundle:@"ic_video_play"] forState:UIControlStateNormal];
+    if (self.singleTapGestureBlock) {
+        self.singleTapGestureBlock();
+    }
+}
+
+
 
 @end

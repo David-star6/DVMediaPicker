@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		163ED9B12397A771002919C8 /* NSBundle+ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 163ED9B02397A771002919C8 /* NSBundle+ImagePicker.m */; };
-		163ED9B32397ABAA002919C8 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 163ED9B22397ABAA002919C8 /* Resources.bundle */; };
 		164BF540237A964E005FE578 /* DVRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 164BF53F237A964E005FE578 /* DVRequestOperation.m */; };
 		167CCCF6237571AD00EE03EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCCF5237571AD00EE03EC /* AppDelegate.m */; };
 		167CCCF9237571AD00EE03EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCCF8237571AD00EE03EC /* ViewController.m */; };
@@ -18,6 +17,7 @@
 		167CCD04237571AE00EE03EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCD03237571AE00EE03EC /* main.m */; };
 		167CCD0E237571AE00EE03EC /* DVMediaPickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCD0D237571AE00EE03EC /* DVMediaPickerTests.m */; };
 		167CCD19237571AE00EE03EC /* DVMediaPickerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 167CCD18237571AE00EE03EC /* DVMediaPickerUITests.m */; };
+		16DEBF89239B73B50035F7D2 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16DEBF88239B73B50035F7D2 /* Resources.bundle */; };
 		16E99E8223797A420032C67A /* DVMediaPickerContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E7423797A420032C67A /* DVMediaPickerContoller.m */; };
 		16E99E8323797A420032C67A /* DVMediaListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E7623797A420032C67A /* DVMediaListController.m */; };
 		16E99E8523797A420032C67A /* DVAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E99E7923797A420032C67A /* DVAlbumCell.m */; };
@@ -50,7 +50,6 @@
 /* Begin PBXFileReference section */
 		163ED9AF2397A771002919C8 /* NSBundle+ImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ImagePicker.h"; sourceTree = "<group>"; };
 		163ED9B02397A771002919C8 /* NSBundle+ImagePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ImagePicker.m"; sourceTree = "<group>"; };
-		163ED9B22397ABAA002919C8 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		164BF53E237A964E005FE578 /* DVRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVRequestOperation.h; sourceTree = "<group>"; };
 		164BF53F237A964E005FE578 /* DVRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DVRequestOperation.m; sourceTree = "<group>"; };
 		167CCCF1237571AD00EE03EC /* DVMediaPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVMediaPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +68,7 @@
 		167CCD14237571AE00EE03EC /* DVMediaPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DVMediaPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		167CCD18237571AE00EE03EC /* DVMediaPickerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DVMediaPickerUITests.m; sourceTree = "<group>"; };
 		167CCD1A237571AE00EE03EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16DEBF88239B73B50035F7D2 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		16E99E7423797A420032C67A /* DVMediaPickerContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVMediaPickerContoller.m; sourceTree = "<group>"; };
 		16E99E7523797A420032C67A /* DVMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVMediaManager.h; sourceTree = "<group>"; };
 		16E99E7623797A420032C67A /* DVMediaListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVMediaListController.m; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		16E99E7323797A420032C67A /* SourceFiles */ = {
 			isa = PBXGroup;
 			children = (
-				163ED9B22397ABAA002919C8 /* Resources.bundle */,
+				16DEBF88239B73B50035F7D2 /* Resources.bundle */,
 				16E99E7D23797A420032C67A /* DVMediaPickerContoller.h */,
 				16E99E7423797A420032C67A /* DVMediaPickerContoller.m */,
 				16E99E7B23797A420032C67A /* DVMediaListController.h */,
@@ -310,7 +310,7 @@
 				167CCD01237571AE00EE03EC /* LaunchScreen.storyboard in Resources */,
 				167CCCFE237571AE00EE03EC /* Assets.xcassets in Resources */,
 				167CCCFC237571AD00EE03EC /* Main.storyboard in Resources */,
-				163ED9B32397ABAA002919C8 /* Resources.bundle in Resources */,
+				16DEBF89239B73B50035F7D2 /* Resources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

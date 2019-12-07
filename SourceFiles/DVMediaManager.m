@@ -230,6 +230,25 @@ static dispatch_once_t onceToken;
     }];
 }
 
+- (void)getVideoWithAsset:(PHAsset *)asset completion:(void (^)(AVPlayerItem *, NSDictionary *))completion {
+    [self getVideoWithAsset:asset progressHandler:nil completion:completion];
+}
+
+- (void)getVideoWithAsset:(PHAsset *)asset progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler completion:(void (^)(AVPlayerItem *, NSDictionary *))completion {
+    PHVideoRequestOptions *option = [[PHVideoRequestOptions alloc] init];
+    option.networkAccessAllowed = YES;
+    option.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (progressHandler) {
+                progressHandler(progress, error, stop, info);
+            }
+        });
+    };
+    [[PHImageManager defaultManager] requestPlayerItemForVideo:asset options:option resultHandler:^(AVPlayerItem *playerItem, NSDictionary *info) {
+        if (completion) completion(playerItem,info);
+    }];
+}
+
 
 /// 修正图片转向
 - (UIImage *)fixOrientation:(UIImage *)aImage {

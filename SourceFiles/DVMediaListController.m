@@ -59,6 +59,9 @@ static CGFloat itemMargin = 5;
 }
 - (void)initSubviews {
     [self configCollectionView];
+    if(self.model.models.count > 1){
+        _collectionView.hidden = YES;
+    };
 }
 
 - (void)configCollectionView {
@@ -74,6 +77,14 @@ static CGFloat itemMargin = 5;
     [self.view addSubview:_collectionView];
     [_collectionView registerClass:[DVAssetCell class] forCellWithReuseIdentifier:@"DVAssetCell"];
     [_collectionView registerClass:[DVAssetCameraCell class] forCellWithReuseIdentifier:@"DVAssetCameraCell"];
+    __weak typeof(self) weakSelf = self;
+    if(self.model.models.count <= 1){
+        return;
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:weakSelf.model.models.count-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:false];
+        weakSelf.collectionView.hidden = false;
+    });
 }
 
 #pragma mark -- delegate

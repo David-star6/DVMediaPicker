@@ -9,6 +9,7 @@
 #import "DVPhotoPreviewController.h"
 #import "DVPhotoPreviewViewCell.h"
 #import "DVMediaPickerContoller.h"
+#import "DVAlbumModel.h"
 
 @interface DVPhotoPreviewController()<UICollectionViewDataSource,UICollectionViewDelegate> {
     UICollectionView *_collectionView;
@@ -59,6 +60,8 @@
     _collectionView.contentSize = CGSizeMake(self.models.count * (self.view.frame.size.width + 20), 0);
     [self.view addSubview:_collectionView];
     [_collectionView registerClass:[DVPhotoPreviewViewCell class] forCellWithReuseIdentifier:@"DVPhotoPreviewViewCell"];
+    [_collectionView registerClass:[DVVideoPreviewCell class] forCellWithReuseIdentifier:@"DVVideoPreviewCell"];
+    [_collectionView setContentOffset:CGPointMake((self.view.frame.size.width+20)*self.currentIndex, 0) animated:false];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -86,7 +89,12 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DVAssetPreviewCell * cell;
     DVAssetModel *model = _models[indexPath.item];
-    cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DVPhotoPreviewViewCell" forIndexPath:indexPath];
+//    DVAssetModelMediaType type =
+    if(model.type == DVAssetModelMediaTypePhoto ||  model.type == DVAssetModelMediaTypeLivePhoto){
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DVPhotoPreviewViewCell" forIndexPath:indexPath];
+    } else if(model.type == DVAssetModelMediaTypeVideo){
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DVVideoPreviewCell" forIndexPath:indexPath];
+    }
     cell.model = model;
     __weak typeof(self) weakSelf = self;
     [cell setSingleTapGestureBlock:^{
