@@ -15,13 +15,20 @@
     UICollectionView *_collectionView;
     UICollectionViewFlowLayout *_layout;
     CGFloat _offsetItemCount;
+    UIButton *_selectButton;
+    UIButton *_doneButton;
+    UILabel *_numberLabel;
+    NSArray *_photosTemp;
+    UILabel *_indexLabel;
 }
-
+@property (nonatomic, assign) BOOL isHideNaviBar;
 @property (nonatomic, weak) UIView * navView;
-
+@property (nonatomic, weak) UIView * toolBar;
 @end
 
 @implementation DVPhotoPreviewController
+
+static CGFloat rgb = 34 / 255.0;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -29,6 +36,14 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self configCollectionView];
+    [self configCustomNaviBar];
+    [self configBottomToolBar];
+}
+
+
+- (void)setPhotos:(NSMutableArray *)photos {
+    _photos = photos;
+    _photosTemp = [NSArray arrayWithArray:photos];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,6 +59,46 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (void)configBottomToolBar{
+    _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _doneButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    [_doneButton addTarget:self action:@selector(doneButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [_doneButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
+    _numberLabel = [[UILabel alloc] init];
+    _numberLabel.font = [UIFont systemFontOfSize:15];
+    _numberLabel.adjustsFontSizeToFitWidth = YES;
+    _numberLabel.textColor = [UIColor whiteColor];
+    _numberLabel.textAlignment = NSTextAlignmentCenter;
+    _numberLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.photos.count];
+//    _numberLabel.text = [NSString stringWithFormat:@"%zd",_tzImagePickerVc.selectedModels.count];
+    _numberLabel.hidden = self.photos.count <= 0;
+    _numberLabel.backgroundColor = [UIColor clearColor];
+    [self.toolBar addSubview:_doneButton];
+    [self.toolBar addSubview:_numberLabel];
+}
+
+- (void)configCustomNaviBar{
+    _selectButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    _selectButton.imageView.clipsToBounds = YES;
+    _selectButton.imageEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
+    _selectButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [_selectButton setImage:[UIImage imageNamedFromBundle:@"ic_image_ normal"] forState:UIControlStateNormal];
+    [_selectButton setImage:[UIImage imageNamedFromBundle:@"ic_image_select"] forState:UIControlStateSelected];
+    [_selectButton addTarget:self action:@selector(select:) forControlEvents:UIControlEventTouchUpInside];
+    _indexLabel = [[UILabel alloc] init];
+    _indexLabel.adjustsFontSizeToFitWidth = YES;
+    _indexLabel.font = [UIFont systemFontOfSize:14];
+    _indexLabel.textColor = [UIColor whiteColor];
+    _indexLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.navView addSubview:_selectButton];
+    [self.navView addSubview:_indexLabel];
+
+    
 }
 
 - (void)configCollectionView{
@@ -76,11 +131,30 @@
         [_collectionView setContentOffset:CGPointMake(offsetX, 0)];
     }
     
+    CGFloat toolBarHeight = [DVCommonTools tz_isIPhoneX] ? 44 + 34 : 44;
+    CGFloat toolBarTop = self.view.frame.size.height - toolBarHeight;
+    _selectButton.frame = CGRectMake(self.view.frame.size.width - 56, DVCommonTools.tz_isIPhoneX ? 44:20, 44, 44);
+    _indexLabel.frame = _selectButton.frame;
     self.navView.frame = CGRectMake(0, 0, self.view.frame.size.width, DVCommonTools.tz_isIPhoneX ? 88:64 );
+    self.toolBar.frame = CGRectMake(0, toolBarTop,  self.view.frame.size.width,  toolBarHeight);
+    [_doneButton sizeToFit];
+    _doneButton.frame = CGRectMake(self.view.frame.size.width- _doneButton.frame.size.width - 12, 0, _doneButton.frame.size.width, 44);
+    _numberLabel.frame = CGRectMake(_doneButton.frame.origin.x - 24 - 5, 10, 24, 24);
+    
 }
 
 
 #pragma mark -- delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offSetWidth = scrollView.contentOffset.x;
+    offSetWidth = offSetWidth +  ((self.view.frame.size.width + 20) * 0.5);
+    
+    NSInteger currentIndex = offSetWidth / (self.view.frame.size.width + 20);
+    _currentIndex = currentIndex;
+    [self refreshNaviBarAndBottomBarState];
+}
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return _models.count;
@@ -123,11 +197,46 @@
 
 #pragma mark -- respon
 - (void)didTapPreviewCell {
+    self.isHideNaviBar = !self.isHideNaviBar;
     _navView.hidden  = !_navView.hidden;
+    _toolBar.hidden = !_toolBar.hidden;
 }
 
 - (void)back:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:true];
+}
+
+- (void)select:(UIButton *)sender{
+    DVAssetModel * model = _models[self.currentIndex];
+    if (!sender.isSelected) {
+        model.isSelected = true;
+        [self.photos addObject:model];
+    } else{
+        model.isSelected = false;
+        [self.photos removeObject:model];
+    }
+    [self refreshNaviBarAndBottomBarState];
+}
+
+- (void)doneButtonClick:(UIButton *)sender{
+    
+}
+
+#pragma mark -- Private Method
+
+- (void)refreshNaviBarAndBottomBarState {
+    DVAssetModel *model = _models[self.currentIndex];
+    _selectButton.selected = model.isSelected;
+    if (_selectButton.isSelected ) {
+        NSString *index = [NSString stringWithFormat:@"%d", (int)(self.photos.count)];
+        _indexLabel.text = index;
+        _indexLabel.hidden = NO;
+    } else {
+        _indexLabel.hidden = YES;
+    }
+
+    _numberLabel.text = [NSString stringWithFormat:@"%zd",_photos.count];
+    _numberLabel.hidden = (_photos.count <= 0 || _isHideNaviBar);
 }
 
 #pragma mark -- get set
@@ -135,7 +244,7 @@
 - (UIView *)navView{
     if(!_navView){
         UIView * view = [[UIView alloc] initWithFrame:CGRectZero];
-        view.backgroundColor = [UIColor grayColor];
+        view.backgroundColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:0.7];;
         UIButton * backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, DVCommonTools.tz_isIPhoneX ? 44:20, 44, 44)];
         [backButton setTitle:@"返回" forState:UIControlStateNormal];
         [backButton.titleLabel setTextAlignment:NSTextAlignmentLeft];
@@ -145,6 +254,16 @@
         _navView = view;
     }
     return _navView;
+}
+
+- (UIView *)toolBar{
+    if(!_toolBar){
+        UIView * view = [[UIView alloc] initWithFrame:CGRectZero];
+        view.backgroundColor =  [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:0.7];
+        [self.view addSubview:view];
+        _toolBar = view;
+    }
+    return _toolBar;
 }
 
 @end

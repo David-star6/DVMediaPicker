@@ -10,6 +10,7 @@
 
 
 @interface DVPhotoPreviewController : UIViewController
+@property (nonatomic, strong) NSMutableArray *photos; 
 @property (nonatomic, strong) NSMutableArray *models;
 @property (nonatomic, assign) NSInteger currentIndex;
 @end

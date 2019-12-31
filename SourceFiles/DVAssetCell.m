@@ -10,6 +10,8 @@
 #import "DVMediaPickerContoller.h"
 
 @interface DVAssetCell()
+@property (weak, nonatomic) UIImageView *selectImageView;
+@property (weak, nonatomic) UILabel *indexLabel;
 @property (nonatomic, weak) UIImageView * imageView;
 @property (nonatomic, weak) UIImageView * videoImgView;
 @property (nonatomic, weak) UIView * bottomView;
@@ -20,9 +22,12 @@
 
 - (void)setModel:(DVAssetModel *)model {
     _model = model;
-    [[DVMediaManager shareInstance] getPhotoWithAsset:model.asset  photoWidth:self.frame.size.width networkAccessAllowed:true completion:^(UIImage * _Nonnull photo) {
+    [[DVMediaManager shareInstance] getPhotoWithAsset:model.asset  photoWidth:self.frame.size.width networkAccessAllowed:true completion:^(UIImage * _Nonnull photo, NSDictionary * _Nonnull info, BOOL isDegraded) {
         self.imageView.image = photo;
         self.type = (NSInteger)model.type;
+        self.selectPhotoButton.selected = model.isSelected;
+        self.selectImageView.image = self.selectPhotoButton.isSelected ? self.photoSelImage : self.photoDefImage;
+        self.indexLabel.hidden = !self.selectPhotoButton.isSelected;
     } progressHandler:^(double progress, NSError * _Nonnull error, BOOL * _Nonnull stop, NSDictionary * _Nonnull info) {
         
     }];
@@ -35,9 +40,68 @@
     } else if (type == DVAssetCellTypeVideo){
         self.bottomView.hidden = NO;
         self.videoImgView.hidden = NO;
+        self.selectPhotoButton.hidden = YES;
+        self.selectImageView.hidden = YES;
         self.timerLabel.text = _model.timeLength;
     }
 }
+
+- (void)requestBigImage {
+//    if (_bigImageRequestID) {
+//        [[PHImageManager defaultManager] cancelImageRequest:_bigImageRequestID];
+//    }
+//
+//    _bigImageRequestID = [[TZImageManager manager] requestImageDataForAsset:_model.asset completion:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
+//        [self hideProgressView];
+//    } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+//        if (self.model.isSelected) {
+//            progress = progress > 0.02 ? progress : 0.02;;
+//            self.progressView.progress = progress;
+//            self.progressView.hidden = NO;
+//            self.imageView.alpha = 0.4;
+//            if (progress >= 1) {
+//                [self hideProgressView];
+//            }
+//        } else {
+//            // 快速连续点几次，会EXC_BAD_ACCESS...
+//            // *stop = YES;
+//            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+//            [self cancelBigImageRequest];
+//        }
+//    }];
+}
+
+
+- (void)selectPhotoButtonClick:(UIButton *)sender {
+    if (self.didSelectPhotoBlock) {
+        self.didSelectPhotoBlock(sender.isSelected);
+    }
+    self.indexLabel.hidden = !sender.isSelected;
+    self.selectImageView.image = sender.isSelected ? self.photoSelImage : self.photoDefImage;
+    if (sender.isSelected) {
+//        [UIView showOscillatoryAnimationWithLayer:_selectImageView.layer type:TZOscillatoryAnimationToBigger];
+        // 用户选中了该图片，提前获取一下大图
+        [self requestBigImage];
+    } else { // 取消选中，取消大图的获取
+        [self cancelBigImageRequest];
+    }
+}
+
+- (void)cancelBigImageRequest {
+//    if (_bigImageRequestID) {
+//        [[PHImageManager defaultManager] cancelImageRequest:_bigImageRequestID];
+//    }
+//    [self hideProgressView];
+}
+
+- (void)setIndex:(NSInteger)index {
+    _index = index;
+    self.indexLabel.text = [NSString stringWithFormat:@"%zd", index];
+    [self.contentView bringSubviewToFront:self.indexLabel];
+}
+
+#pragma mark - Lazy load
+
 
 - (UIImageView *)imageView {
     if (_imageView == nil) {
@@ -84,17 +148,70 @@
     return _timerLabel;
 }
 
+- (UILabel *)indexLabel {
+    if (_indexLabel == nil) {
+        UILabel *indexLabel = [[UILabel alloc] init];
+        indexLabel.font = [UIFont systemFontOfSize:14];
+        indexLabel.adjustsFontSizeToFitWidth = YES;
+        indexLabel.textColor = [UIColor whiteColor];
+        indexLabel.textAlignment = NSTextAlignmentCenter;
+        [self.contentView addSubview:indexLabel];
+        _indexLabel = indexLabel;
+    }
+    return _indexLabel;
+}
+
 
 - (void)layoutSubviews{
     [super layoutSubviews];
+    _cannotSelectLayerButton.frame = self.bounds;
+    
+    _selectPhotoButton.frame = CGRectMake(self.frame.size.width - 44, 0, 44, 44);
+
+    _selectImageView.frame = CGRectMake(self.frame.size.width - 27, 3, 24, 24);
+    if (_selectImageView.image.size.width <= 27) {
+        _selectImageView.contentMode = UIViewContentModeCenter;
+    } else {
+        _selectImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+
+    _indexLabel.frame = _selectImageView.frame;
     _imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     _bottomView.frame = CGRectMake(0,  self.frame.size.height - 17, self.frame.size.width, 17);
     _videoImgView.frame = CGRectMake(8, 0, 17, 17);
     _timerLabel.frame = CGRectMake(self.frame.size.width-54-5, 0, 54, 17);
-    
-    [self.contentView bringSubviewToFront:_bottomView];
-    
 }
+
+- (UIButton *)selectPhotoButton {
+    if (_selectPhotoButton == nil) {
+        UIButton *selectPhotoButton = [[UIButton alloc] init];
+        [selectPhotoButton addTarget:self action:@selector(selectPhotoButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:selectPhotoButton];
+        _selectPhotoButton = selectPhotoButton;
+    }
+    return _selectPhotoButton;
+}
+
+- (UIButton *)cannotSelectLayerButton {
+    if (_cannotSelectLayerButton == nil) {
+        UIButton *cannotSelectLayerButton = [[UIButton alloc] init];
+        [self.contentView addSubview:cannotSelectLayerButton];
+        _cannotSelectLayerButton = cannotSelectLayerButton;
+    }
+    return _cannotSelectLayerButton;
+}
+
+- (UIImageView *)selectImageView {
+    if (_selectImageView == nil) {
+        UIImageView *selectImageView = [[UIImageView alloc] init];
+        selectImageView.contentMode = UIViewContentModeCenter;
+        selectImageView.clipsToBounds = YES;
+        [self.contentView addSubview:selectImageView];
+        _selectImageView = selectImageView;
+    }
+    return _selectImageView;
+}
+
 
 @end
 

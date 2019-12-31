@@ -10,12 +10,20 @@
 #import "DVAssetCell.h"
 #import "DVAlbumModel.h"
 #import "DVPhotoPreviewController.h"
+#import "DVMediaPickerContoller.h"
+#import "DVRequestOperation.h"
 
 @interface DVMediaListController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSMutableArray *_models;
+    UIButton *_doneButton;
+    UIView *_bottomToolBar;
+    UILabel *_numberLabel;
+
+
 }
 @property (nonatomic, strong) DVCollectionView *collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout *layout;
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
 
 @end
 
@@ -27,7 +35,14 @@ static CGFloat itemMargin = 5;
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = _model.name;
+    
+    [self configOperation];
     // Do any additional setup after loading the view.
+}
+
+- (void)configOperation{
+    self.operationQueue = [[NSOperationQueue alloc] init];
+    self.operationQueue.maxConcurrentOperationCount = 3;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -40,12 +55,22 @@ static CGFloat itemMargin = 5;
 - (void)viewDidLayoutSubviews {
     CGFloat top = 0;
     CGFloat collectionViewHeight = 0;
-    collectionViewHeight = self.view.frame.size.height;
+    CGFloat toolBarHeight = [DVCommonTools tz_isIPhoneX] ? 83 : 50;
+    collectionViewHeight = self.view.frame.size.height - toolBarHeight;
+
     _collectionView.frame = CGRectMake(0, top, self.view.frame.size.width, collectionViewHeight);
     CGFloat itemWH = (self.view.frame.size.width - (self.columnNumber + 1) * itemMargin) / self.columnNumber;
     _layout.itemSize = CGSizeMake(itemWH, itemWH);
     _layout.minimumInteritemSpacing = itemMargin;
     _layout.minimumLineSpacing = itemMargin;
+    
+
+    CGFloat toolBarTop = 0;
+    toolBarTop = self.view.frame.size.height - toolBarHeight;
+    _bottomToolBar.frame = CGRectMake(0, toolBarTop, self.view.frame.size.width, toolBarHeight);
+    [_doneButton sizeToFit];
+    _doneButton.frame = CGRectMake(self.view.frame.size.width - _doneButton.frame.size.width - 12, 0, _doneButton.frame.size.width, 50);
+    
     [_collectionView setCollectionViewLayout:_layout];
 }
 
@@ -57,11 +82,57 @@ static CGFloat itemMargin = 5;
         });
     });
 }
+
 - (void)initSubviews {
     [self configCollectionView];
     if(self.model.models.count > 1){
         _collectionView.hidden = YES;
     };
+    [self configBottomToolBar];
+}
+
+- (void)configBottomToolBar {
+    DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
+//    if (!tzImagePickerVc.showSelectBtn) return;
+    
+    _bottomToolBar = [[UIView alloc] initWithFrame:CGRectZero];
+    CGFloat rgb = 253 / 255.0;
+    _bottomToolBar.backgroundColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:1.0];
+    
+
+    _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _doneButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    [_doneButton addTarget:self action:@selector(doneButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [_doneButton setTitle:@"done" forState:UIControlStateNormal];
+    [_doneButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//
+//    [_doneButton setTitle:tzImagePickerVc.doneBtnTitleStr forState:UIControlStateNormal];
+//    [_doneButton setTitle:tzImagePickerVc.doneBtnTitleStr forState:UIControlStateDisabled];
+//    [_doneButton setTitleColor:tzImagePickerVc.oKButtonTitleColorNormal forState:UIControlStateNormal];
+//    [_doneButton setTitleColor:tzImagePickerVc.oKButtonTitleColorDisabled forState:UIControlStateDisabled];
+//    _doneButton.enabled = tzImagePickerVc.selectedModels.count || tzImagePickerVc.alwaysEnableDoneBtn;
+//
+//    _numberImageView = [[UIImageView alloc] initWithImage:tzImagePickerVc.photoNumberIconImage];
+//    _numberImageView.hidden = tzImagePickerVc.selectedModels.count <= 0;
+//    _numberImageView.clipsToBounds = YES;
+//    _numberImageView.contentMode = UIViewContentModeScaleAspectFit;
+//    _numberImageView.backgroundColor = [UIColor clearColor];
+    
+    _numberLabel = [[UILabel alloc] init];
+    _numberLabel.font = [UIFont systemFontOfSize:15];
+    _numberLabel.adjustsFontSizeToFitWidth = YES;
+    _numberLabel.textColor = [UIColor whiteColor];
+    _numberLabel.textAlignment = NSTextAlignmentCenter;
+    _numberLabel.text = [NSString stringWithFormat:@"%zd",imagePickerVc.selectedModels.count];
+    _numberLabel.hidden = imagePickerVc.selectedModels.count <= 0;
+    _numberLabel.backgroundColor = [UIColor clearColor];
+    
+    CGFloat rgb2 = 222 / 255.0;
+    
+
+    [_bottomToolBar addSubview:_doneButton];
+    [_bottomToolBar addSubview:_numberLabel];
+    [self.view addSubview:_bottomToolBar];
 }
 
 - (void)configCollectionView {
@@ -93,13 +164,37 @@ static CGFloat itemMargin = 5;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
     DVAssetCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DVAssetCell" forIndexPath:indexPath];
     DVAssetModel * model = _models[indexPath.row];
+    cell.photoDefImage = [UIImage imageNamedFromBundle:@"ic_image_ normal"];
+    cell.photoSelImage = [UIImage imageNamedFromBundle:@"ic_image_select"];
     cell.model = model;
-    __weak typeof(cell) weakCell = cell;
+    if (model.isSelected) {
+        cell.index = imagePickerVc.selectedModels.count;
+    }
+    __strong typeof(cell) strongCell = cell;
     __weak typeof(self) weakSelf = self;
     cell.didSelectPhotoBlock = ^(BOOL isSelected){
-        [weakSelf selectButtonRespond];
+        DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)weakSelf.navigationController;
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if(isSelected){
+            strongCell.selectPhotoButton.selected = NO;
+            model.isSelected = NO;
+            NSArray *selectedModels = [NSArray arrayWithArray:imagePickerVc.selectedModels];
+            for (DVAssetModel *model_item in selectedModels) {
+                if ([model.asset.localIdentifier isEqualToString:model_item.asset.localIdentifier]) {
+                    [imagePickerVc removeSelectedModel:model_item];
+                    break;
+                }
+            };
+            strongCell.index = imagePickerVc.selectedModels.count;
+        }else {
+            strongCell.selectPhotoButton.selected = YES;
+            model.isSelected = YES;
+            [imagePickerVc addSelectedModel:model];
+            strongCell.index = imagePickerVc.selectedModels.count;
+        }
     };
     return cell;
 }
@@ -107,14 +202,56 @@ static CGFloat itemMargin = 5;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     DVPhotoPreviewController * photoVc = [[DVPhotoPreviewController alloc] init];
     photoVc.models = _models;
+    photoVc.photos = [[NSMutableArray alloc] init];
     photoVc.currentIndex = indexPath.row;
     [self.navigationController pushViewController:photoVc animated:true];
 }
 
 #pragma mark -- Click event
 
-- (void)selectButtonRespond{
+- (void)selectButtonRespond:(DVAssetModel *)mode{
+    NSLog(@"-----%@",mode);
+}
+
+- (void)doneButtonClick{
+    DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
+
+    [imagePickerVc showProgressHUD];
     
+    NSMutableArray *assets = [NSMutableArray array];
+    NSMutableArray *photos = [NSMutableArray array];;
+    NSMutableArray *infoArr = [NSMutableArray array];
+    for (NSInteger i = 0; i < imagePickerVc.selectedModels.count; i++) {
+        [photos addObject:@1];
+        [assets addObject:@1];
+        [infoArr addObject:@1];
+    }
+    __block BOOL havenotShowAlert = YES;
+    for (NSInteger i = 0; i < imagePickerVc.selectedModels.count; i++) {
+        DVAssetModel *model = imagePickerVc.selectedModels[i];
+        DVRequestOperation *operation = [[DVRequestOperation alloc] initWithAsset:model.asset completion:^(UIImage * _Nonnull photo) {
+            if (photo) {
+                [photos replaceObjectAtIndex:i withObject:photo];
+            }
+            [assets replaceObjectAtIndex:i withObject:model.asset];
+            
+            for (id item in photos) { if ([item isKindOfClass:[NSNumber class]]) return; }
+
+            if (havenotShowAlert) {
+                [self didGetAllPhotos:photos assets:assets infoArr:infoArr];
+            }
+        } progressHandler:^(double progress) {
+            if (progress >= 1) {
+                havenotShowAlert = YES;
+            }
+        }];
+        [self.operationQueue addOperation:operation];
+    }
+}
+
+- (void)didGetAllPhotos:(NSArray *)photos assets:(NSArray *)assets infoArr:(NSArray *)infoArr {
+    DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
+    [imagePickerVc hideProgressHUD];
 }
 
 

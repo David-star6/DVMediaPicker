@@ -20,9 +20,15 @@ typedef enum : NSInteger{
 
 @class DVAssetModel;
 @interface DVAssetCell : UICollectionViewCell
+@property (weak, nonatomic) UIButton *selectPhotoButton;
+@property (weak, nonatomic) UIButton *cannotSelectLayerButton;
+@property (assign, nonatomic) NSInteger index;
 @property (nonatomic, strong) DVAssetModel *model;
 @property (nonatomic, assign) DVAssetCellType type;
 @property (nonatomic, copy) void(^didSelectPhotoBlock)(BOOL);
+
+@property (nonatomic, strong) UIImage *photoSelImage;
+@property (nonatomic, strong) UIImage *photoDefImage;
 
 @end
 

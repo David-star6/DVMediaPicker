@@ -12,13 +12,20 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^DVRequestCompletedBlock)(UIImage *photo);
-typedef void(^DVRequestProgressBlock)(BOOL *stop);
+typedef void(^DVRequestProgressBlock)(double progress);
+
 
 @interface DVRequestOperation : NSOperation
+
 @property (nonatomic, copy ,nullable) DVRequestCompletedBlock completedBlock;
 @property (nonatomic, copy, nullable) DVRequestProgressBlock progressBlock;
 @property (nonatomic, strong, nullable) PHAsset *asset;
 
+@property (assign, nonatomic, getter = isExecuting) BOOL executing;
+@property (assign, nonatomic, getter = isFinished) BOOL finished;
+
+- (instancetype)initWithAsset:(PHAsset *)asset completion:(DVRequestCompletedBlock)completionBlock progressHandler:(DVRequestProgressBlock)progressHandler;
+- (void)done;
 
 @end
 

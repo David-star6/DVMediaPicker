@@ -125,7 +125,7 @@
 
 - (void)setAsset:(PHAsset *)asset {
     _asset = asset;
-    [[DVMediaManager shareInstance] getPhotoWithAsset:asset completion:^(UIImage * _Nonnull photo) {
+    [[DVMediaManager shareInstance] getPhotoWithAsset:asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
         self.imageView.image = photo;
         self.progressView.hidden = YES;
         [self resizeSubviews];
@@ -257,7 +257,7 @@
     }
     
     if (self.model && self.model.asset) {
-        [[DVMediaManager shareInstance] getPhotoWithAsset:self.model.asset completion:^(UIImage * _Nonnull photo) {
+        [[DVMediaManager shareInstance] getPhotoWithAsset:self.model.asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
              self.cover = photo;
         } progressHandler:^(double progress, NSError * _Nonnull error, BOOL * _Nonnull stop, NSDictionary * _Nonnull info) {
             

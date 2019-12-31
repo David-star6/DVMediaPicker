@@ -168,12 +168,12 @@ static dispatch_once_t onceToken;
     return type;
 }
 
-- (void)getPhotoWithAsset:(PHAsset *)asset completion:(void(^)(UIImage *photo))completion progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler networkAccessAllowed:(BOOL)networkAccessAllowed{
+- (void)getPhotoWithAsset:(PHAsset *)asset completion:(void (^)(UIImage *photo,NSDictionary *info,BOOL isDegraded))completion progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler networkAccessAllowed:(BOOL)networkAccessAllowed{
     CGFloat fullScreenWidth = DVScreenWidth;
     return [self getPhotoWithAsset:asset photoWidth:fullScreenWidth networkAccessAllowed:true completion:completion progressHandler:progressHandler];
 }
 
-- (void)getPhotoWithAsset:(PHAsset *)asset photoWidth:(CGFloat)photoWidth networkAccessAllowed:(BOOL)networkAccessAllowed  completion:(void(^)(UIImage *photo))completion progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler{
+- (void)getPhotoWithAsset:(PHAsset *)asset photoWidth:(CGFloat)photoWidth networkAccessAllowed:(BOOL)networkAccessAllowed  completion:(void (^)(UIImage *photo,NSDictionary *info,BOOL isDegraded))completion progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler{
     CGSize imageSize;
     if (photoWidth < DVScreenWidth && photoWidth < 600) {
         imageSize = AssetGridThumbnailSize;
@@ -204,7 +204,7 @@ static dispatch_once_t onceToken;
         BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
         if (downloadFinined && result) {
             result = [self fixOrientation:result];
-            if (completion) completion(result);
+            if (completion) completion(result,info,[[info objectForKey:PHImageResultIsDegradedKey] boolValue]);
         }
         // Download image from iCloud / 从iCloud下载图片
         if ([info objectForKey:PHImageResultIsInCloudKey] && !result && networkAccessAllowed) {
@@ -224,7 +224,7 @@ static dispatch_once_t onceToken;
                     resultImage = image;
                 }
                 resultImage = [self fixOrientation:resultImage];
-                if (completion) completion(resultImage);
+                if (completion) completion(resultImage,info,NO);
             }];
         }
     }];

@@ -37,6 +37,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) PHAsset *asset;
 @property (nonatomic, copy) NSString *timeLength;
 @property (nonatomic, assign) DVAssetModelMediaType type;
+@property (nonatomic, assign) BOOL isSelected;
 
 /// Init a photo dataModel With a PHAsset
 /// 用一个PHAsset实例，初始化一个照片模型

@@ -14,6 +14,14 @@
 #import "NSBundle+ImagePicker.h"
 
 @interface DVMediaPickerContoller ()
+{
+    UIButton *_progressHUD;
+    UIView *_HUDContainer;
+    UILabel *_HUDLabel;
+    UIActivityIndicatorView *_HUDIndicatorView;
+
+
+}
 
 @end
 
@@ -30,6 +38,11 @@
 #pragma mark -- Layout
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    CGFloat progressHUDY = CGRectGetMaxY(self.navigationBar.frame);
+    _progressHUD.frame = CGRectMake(0, progressHUDY, self.view.frame.size.width, self.view.frame.size.height - progressHUDY);
+    _HUDContainer.frame = CGRectMake((self.view.frame.size.width - 120) / 2, (_progressHUD.frame.size.height - 90 - progressHUDY) / 2, 120, 90);
+    _HUDIndicatorView.frame = CGRectMake(45, 15, 30, 30);
+    _HUDLabel.frame = CGRectMake(0,40, 120, 50);
     
 }
 
@@ -52,15 +65,87 @@
     DVAlbumPickerController * vc = [[DVAlbumPickerController alloc] init];
     self = [super initWithRootViewController:vc];
     if(self){
-        
+        [self configDefaultSetting];
     }
     return self;
 }
 
+- (void)configDefaultSetting {
+    self.timeout = 15;
+
+}
+
+- (void)showProgressHUD {
+    if (!_progressHUD) {
+        _progressHUD = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_progressHUD setBackgroundColor:[UIColor clearColor]];
+        
+        _HUDContainer = [[UIView alloc] init];
+        _HUDContainer.layer.cornerRadius = 8;
+        _HUDContainer.clipsToBounds = YES;
+        _HUDContainer.backgroundColor = [UIColor darkGrayColor];
+        _HUDContainer.alpha = 0.7;
+        
+        _HUDIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        
+        _HUDLabel = [[UILabel alloc] init];
+        _HUDLabel.textAlignment = NSTextAlignmentCenter;
+        _HUDLabel.text = @"Processing...";
+        _HUDLabel.font = [UIFont systemFontOfSize:15];
+        _HUDLabel.textColor = [UIColor whiteColor];
+        
+        [_HUDContainer addSubview:_HUDLabel];
+        [_HUDContainer addSubview:_HUDIndicatorView];
+        [_progressHUD addSubview:_HUDContainer];
+    }
+    [_HUDIndicatorView startAnimating];
+    UIWindow *applicationWindow;
+    if ([[[UIApplication sharedApplication] delegate] respondsToSelector:@selector(window)]) {
+        applicationWindow = [[[UIApplication sharedApplication] delegate] window];
+    } else {
+        applicationWindow = [[UIApplication sharedApplication] keyWindow];
+    }
+    [applicationWindow addSubview:_progressHUD];
+    [self.view setNeedsLayout];
+    
+    // if over time, dismiss HUD automatic
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf hideProgressHUD];
+    });
+}
+
+- (void)hideProgressHUD {
+    if (_progressHUD) {
+        [_HUDIndicatorView stopAnimating];
+        [_progressHUD removeFromSuperview];
+    }
+}
+
 #pragma mark -- event
 - (void)cancelButtonClick{
-    NSLog(@"123");
 }
+
+- (void)addSelectedModel:(DVAssetModel *)model{
+    [self.selectedModels addObject:model];
+}
+
+- (void)removeSelectedModel:(DVAssetModel *)model{
+    [self.selectedModels removeObject:model];
+}
+
+- (void)setMaxImagesCount:(NSInteger)maxImagesCount {
+    _maxImagesCount = maxImagesCount;
+}
+
+- (NSMutableArray<DVAssetModel *> *)selectedModels{
+    if(!_selectedModels){
+        _selectedModels = [[NSMutableArray alloc] init];
+    }
+    return _selectedModels;
+}
+
 
 @end
 
@@ -205,7 +290,6 @@
         name = [name stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
         image = [UIImage imageNamed:name];
     }
-    NSLog(@"%@",image);
     return image;
 }
 
