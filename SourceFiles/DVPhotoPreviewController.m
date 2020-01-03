@@ -10,6 +10,8 @@
 #import "DVPhotoPreviewViewCell.h"
 #import "DVMediaPickerContoller.h"
 #import "DVAlbumModel.h"
+#import "DVMediaPickerContoller.h"
+
 
 @interface DVPhotoPreviewController()<UICollectionViewDataSource,UICollectionViewDelegate> {
     UICollectionView *_collectionView;
@@ -20,6 +22,8 @@
     UILabel *_numberLabel;
     NSArray *_photosTemp;
     UILabel *_indexLabel;
+    UIImageView *_numberImageView;
+
 }
 @property (nonatomic, assign) BOOL isHideNaviBar;
 @property (nonatomic, weak) UIView * navView;
@@ -38,6 +42,7 @@ static CGFloat rgb = 34 / 255.0;
     [self configCollectionView];
     [self configCustomNaviBar];
     [self configBottomToolBar];
+    [self refreshNaviBarAndBottomBarState];
 }
 
 
@@ -68,17 +73,24 @@ static CGFloat rgb = 34 / 255.0;
     [_doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [_doneButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     
+    _numberImageView = [[UIImageView alloc] initWithImage: [UIImage imageNamedFromBundle:@"ic_image_select"]];
+    _numberImageView.hidden = self.photos.count <= 0;
+    _numberImageView.clipsToBounds = YES;
+    _numberImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _numberImageView.backgroundColor = [UIColor clearColor];
+    
     _numberLabel = [[UILabel alloc] init];
     _numberLabel.font = [UIFont systemFontOfSize:15];
     _numberLabel.adjustsFontSizeToFitWidth = YES;
     _numberLabel.textColor = [UIColor whiteColor];
     _numberLabel.textAlignment = NSTextAlignmentCenter;
     _numberLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.photos.count];
-//    _numberLabel.text = [NSString stringWithFormat:@"%zd",_tzImagePickerVc.selectedModels.count];
     _numberLabel.hidden = self.photos.count <= 0;
     _numberLabel.backgroundColor = [UIColor clearColor];
     [self.toolBar addSubview:_doneButton];
+    [self.toolBar addSubview:_numberImageView];
     [self.toolBar addSubview:_numberLabel];
+
 }
 
 - (void)configCustomNaviBar{
@@ -139,7 +151,8 @@ static CGFloat rgb = 34 / 255.0;
     self.toolBar.frame = CGRectMake(0, toolBarTop,  self.view.frame.size.width,  toolBarHeight);
     [_doneButton sizeToFit];
     _doneButton.frame = CGRectMake(self.view.frame.size.width- _doneButton.frame.size.width - 12, 0, _doneButton.frame.size.width, 44);
-    _numberLabel.frame = CGRectMake(_doneButton.frame.origin.x - 24 - 5, 10, 24, 24);
+    _numberImageView.frame = CGRectMake(_doneButton.frame.origin.x - 24 - 5, 10, 24, 24);
+    _numberLabel.frame = _numberImageView.frame;
     
 }
 
@@ -215,6 +228,7 @@ static CGFloat rgb = 34 / 255.0;
         model.isSelected = false;
         [self.photos removeObject:model];
     }
+    self.selectBlock(model.isSelected,self.currentIndex);
     [self refreshNaviBarAndBottomBarState];
 }
 
@@ -235,6 +249,7 @@ static CGFloat rgb = 34 / 255.0;
         _indexLabel.hidden = YES;
     }
 
+    _numberImageView.hidden = (_photos.count <= 0 || _isHideNaviBar);
     _numberLabel.text = [NSString stringWithFormat:@"%zd",_photos.count];
     _numberLabel.hidden = (_photos.count <= 0 || _isHideNaviBar);
 }

@@ -12,15 +12,16 @@
 #import "DVPhotoPreviewController.h"
 #import "DVMediaPickerContoller.h"
 #import "DVRequestOperation.h"
+#import "UIView+Layout.h"
 
 @interface DVMediaListController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSMutableArray *_models;
     UIButton *_doneButton;
     UIView *_bottomToolBar;
     UILabel *_numberLabel;
-
-
+    UIImageView *_numberImageView;
 }
+
 @property (nonatomic, strong) DVCollectionView *collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout *layout;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
@@ -37,7 +38,6 @@ static CGFloat itemMargin = 5;
     self.navigationItem.title = _model.name;
     
     [self configOperation];
-    // Do any additional setup after loading the view.
 }
 
 - (void)configOperation{
@@ -70,6 +70,9 @@ static CGFloat itemMargin = 5;
     _bottomToolBar.frame = CGRectMake(0, toolBarTop, self.view.frame.size.width, toolBarHeight);
     [_doneButton sizeToFit];
     _doneButton.frame = CGRectMake(self.view.frame.size.width - _doneButton.frame.size.width - 12, 0, _doneButton.frame.size.width, 50);
+    _numberImageView.frame = CGRectMake(_doneButton.dv_left - 24 - 5, 13, 24, 24);
+    _numberLabel.frame = _numberImageView.frame;
+
     
     [_collectionView setCollectionViewLayout:_layout];
 }
@@ -112,11 +115,11 @@ static CGFloat itemMargin = 5;
 //    [_doneButton setTitleColor:tzImagePickerVc.oKButtonTitleColorDisabled forState:UIControlStateDisabled];
 //    _doneButton.enabled = tzImagePickerVc.selectedModels.count || tzImagePickerVc.alwaysEnableDoneBtn;
 //
-//    _numberImageView = [[UIImageView alloc] initWithImage:tzImagePickerVc.photoNumberIconImage];
-//    _numberImageView.hidden = tzImagePickerVc.selectedModels.count <= 0;
-//    _numberImageView.clipsToBounds = YES;
-//    _numberImageView.contentMode = UIViewContentModeScaleAspectFit;
-//    _numberImageView.backgroundColor = [UIColor clearColor];
+    _numberImageView = [[UIImageView alloc] initWithImage: [UIImage imageNamedFromBundle:@"ic_image_select"]];
+    _numberImageView.hidden = imagePickerVc.selectedModels.count <= 0;
+    _numberImageView.clipsToBounds = YES;
+    _numberImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _numberImageView.backgroundColor = [UIColor clearColor];
     
     _numberLabel = [[UILabel alloc] init];
     _numberLabel.font = [UIFont systemFontOfSize:15];
@@ -127,9 +130,8 @@ static CGFloat itemMargin = 5;
     _numberLabel.hidden = imagePickerVc.selectedModels.count <= 0;
     _numberLabel.backgroundColor = [UIColor clearColor];
     
-    CGFloat rgb2 = 222 / 255.0;
-    
 
+    [_bottomToolBar addSubview:_numberImageView];
     [_bottomToolBar addSubview:_doneButton];
     [_bottomToolBar addSubview:_numberLabel];
     [self.view addSubview:_bottomToolBar];
@@ -176,8 +178,8 @@ static CGFloat itemMargin = 5;
     __strong typeof(cell) strongCell = cell;
     __weak typeof(self) weakSelf = self;
     cell.didSelectPhotoBlock = ^(BOOL isSelected){
+        __strong typeof (weakSelf) strongSelf = weakSelf;
         DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)weakSelf.navigationController;
-        __strong typeof(weakSelf) strongSelf = weakSelf;
         if(isSelected){
             strongCell.selectPhotoButton.selected = NO;
             model.isSelected = NO;
@@ -188,22 +190,32 @@ static CGFloat itemMargin = 5;
                     break;
                 }
             };
+            [weakSelf refreshBottomToolBarStatus];
+            [strongSelf->_models replaceObjectAtIndex:indexPath.row withObject:model];
             strongCell.index = imagePickerVc.selectedModels.count;
         }else {
             strongCell.selectPhotoButton.selected = YES;
             model.isSelected = YES;
             [imagePickerVc addSelectedModel:model];
             strongCell.index = imagePickerVc.selectedModels.count;
+            [weakSelf refreshBottomToolBarStatus];
+            [strongSelf->_models replaceObjectAtIndex:indexPath.row withObject:model];
         }
     };
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
     DVPhotoPreviewController * photoVc = [[DVPhotoPreviewController alloc] init];
     photoVc.models = _models;
-    photoVc.photos = [[NSMutableArray alloc] init];
+    photoVc.photos = imagePickerVc.selectedModels;
     photoVc.currentIndex = indexPath.row;
+    __strong typeof(self) strongSelf = self;
+    [photoVc setSelectBlock:^(BOOL isSelect, NSInteger index){
+        [strongSelf.collectionView reloadData];
+        [strongSelf refreshBottomToolBarStatus];
+    }];
     [self.navigationController pushViewController:photoVc animated:true];
 }
 
@@ -256,6 +268,16 @@ static CGFloat itemMargin = 5;
 
 
 #pragma mark -- Private Method
+
+- (void)refreshBottomToolBarStatus{
+    DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
+
+    _numberImageView.hidden = imagePickerVc.selectedModels.count <= 0;
+    _numberLabel.hidden = imagePickerVc.selectedModels.count <= 0;
+    _numberLabel.text = [NSString stringWithFormat:@"%zd",imagePickerVc.selectedModels.count];
+    
+}
+
 
 @end
 

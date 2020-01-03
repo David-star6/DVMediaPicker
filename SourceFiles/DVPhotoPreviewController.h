@@ -13,5 +13,8 @@
 @property (nonatomic, strong) NSMutableArray *photos; 
 @property (nonatomic, strong) NSMutableArray *models;
 @property (nonatomic, assign) NSInteger currentIndex;
+
+@property (nonatomic, copy) void (^selectBlock)(BOOL isSelect,NSInteger index);
+
 @end
 
