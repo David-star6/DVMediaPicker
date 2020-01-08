@@ -173,7 +173,7 @@ static CGFloat itemMargin = 5;
     cell.photoSelImage = [UIImage imageNamedFromBundle:@"ic_image_select"];
     cell.model = model;
     if (model.isSelected) {
-        cell.index = imagePickerVc.selectedModels.count;
+        cell.index =  [imagePickerVc.selectedAssetIds indexOfObject:model.asset.localIdentifier] + 1;
     }
     __strong typeof(cell) strongCell = cell;
     __weak typeof(self) weakSelf = self;
@@ -190,14 +190,15 @@ static CGFloat itemMargin = 5;
                     break;
                 }
             };
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"TZ_PHOTO_PICKER_RELOAD_NOTIFICATION" object:strongSelf.navigationController];
             [weakSelf refreshBottomToolBarStatus];
             [strongSelf->_models replaceObjectAtIndex:indexPath.row withObject:model];
-            strongCell.index = imagePickerVc.selectedModels.count;
+         
         }else {
             strongCell.selectPhotoButton.selected = YES;
             model.isSelected = YES;
             [imagePickerVc addSelectedModel:model];
-            strongCell.index = imagePickerVc.selectedModels.count;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"TZ_PHOTO_PICKER_RELOAD_NOTIFICATION" object:strongSelf.navigationController];
             [weakSelf refreshBottomToolBarStatus];
             [strongSelf->_models replaceObjectAtIndex:indexPath.row withObject:model];
         }
@@ -208,11 +209,11 @@ static CGFloat itemMargin = 5;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
     DVPhotoPreviewController * photoVc = [[DVPhotoPreviewController alloc] init];
-    photoVc.models = _models;
-    photoVc.photos = imagePickerVc.selectedModels;
+    photoVc.models = [NSMutableArray arrayWithArray:_models];
+    photoVc.photos = [NSMutableArray arrayWithArray:imagePickerVc.selectedModels];
     photoVc.currentIndex = indexPath.row;
     __strong typeof(self) strongSelf = self;
-    [photoVc setSelectBlock:^(BOOL isSelect, NSInteger index){
+    [photoVc setSelectBlock:^(DVAssetModel * model, NSInteger index){
         [strongSelf.collectionView reloadData];
         [strongSelf refreshBottomToolBarStatus];
     }];

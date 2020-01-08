@@ -129,10 +129,12 @@
 
 - (void)addSelectedModel:(DVAssetModel *)model{
     [self.selectedModels addObject:model];
+    [self.selectedAssetIds addObject:model.asset.localIdentifier];
 }
 
 - (void)removeSelectedModel:(DVAssetModel *)model{
     [self.selectedModels removeObject:model];
+    [self.selectedAssetIds removeObject:model.asset.localIdentifier];
 }
 
 - (void)setMaxImagesCount:(NSInteger)maxImagesCount {
@@ -144,6 +146,13 @@
         _selectedModels = [[NSMutableArray alloc] init];
     }
     return _selectedModels;
+}
+
+- (NSMutableArray *)selectedAssetIds{
+    if(!_selectedAssetIds){
+        _selectedAssetIds = [[NSMutableArray alloc] init];
+    }
+    return _selectedAssetIds;
 }
 
 

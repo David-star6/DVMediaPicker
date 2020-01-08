@@ -176,7 +176,6 @@ static CGFloat rgb = 34 / 255.0;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DVAssetPreviewCell * cell;
     DVAssetModel *model = _models[indexPath.item];
-//    DVAssetModelMediaType type =
     if(model.type == DVAssetModelMediaTypePhoto ||  model.type == DVAssetModelMediaTypeLivePhoto){
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DVPhotoPreviewViewCell" forIndexPath:indexPath];
     } else if(model.type == DVAssetModelMediaTypeVideo){
@@ -221,14 +220,18 @@ static CGFloat rgb = 34 / 255.0;
 
 - (void)select:(UIButton *)sender{
     DVAssetModel * model = _models[self.currentIndex];
+    DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
     if (!sender.isSelected) {
         model.isSelected = true;
         [self.photos addObject:model];
+        [imagePickerVc addSelectedModel:model];
     } else{
         model.isSelected = false;
         [self.photos removeObject:model];
+        [imagePickerVc removeSelectedModel:model];
+
     }
-    self.selectBlock(model.isSelected,self.currentIndex);
+    self.selectBlock(model,self.currentIndex);
     [self refreshNaviBarAndBottomBarState];
 }
 
@@ -261,7 +264,10 @@ static CGFloat rgb = 34 / 255.0;
         UIView * view = [[UIView alloc] initWithFrame:CGRectZero];
         view.backgroundColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:0.7];;
         UIButton * backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, DVCommonTools.tz_isIPhoneX ? 44:20, 44, 44)];
-        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        
+        [backButton setImage:[UIImage imageNamedFromBundle:@"nav_back"] forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageNamedFromBundle:@"nav_back"] forState:UIControlStateHighlighted];
+//        [backButton setTitle:@"返回" forState:UIControlStateNormal];
         [backButton.titleLabel setTextAlignment:NSTextAlignmentLeft];
         [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:backButton];

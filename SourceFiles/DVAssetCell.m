@@ -9,6 +9,12 @@
 #import "DVAssetCell.h"
 #import "DVMediaPickerContoller.h"
 
+
+typedef NS_ENUM(NSUInteger, CellTpye) {
+    CellTpyeVideo=0,
+    CellTpyeImage=1,
+};
+
 @interface DVAssetCell()
 @property (weak, nonatomic) UIImageView *selectImageView;
 @property (weak, nonatomic) UILabel *indexLabel;
@@ -19,6 +25,12 @@
 @end
 
 @implementation DVAssetCell
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload:) name:@"TZ_PHOTO_PICKER_RELOAD_NOTIFICATION" object:nil];
+    return self;
+}
 
 - (void)setModel:(DVAssetModel *)model {
     _model = model;
@@ -36,40 +48,35 @@
 - (void)setType:(DVAssetCellType)type{
     _type = type;
     if(type == DVAssetCellTypePhoto || type == DVAssetCellTypeLivePhoto){
-        _bottomView.hidden = YES;
+        [self cellType:CellTpyeImage];
     } else if (type == DVAssetCellTypeVideo){
-        self.bottomView.hidden = NO;
-        self.videoImgView.hidden = NO;
-        self.selectPhotoButton.hidden = YES;
-        self.selectImageView.hidden = YES;
-        self.timerLabel.text = _model.timeLength;
+        [self cellType:CellTpyeVideo];
     }
 }
 
-- (void)requestBigImage {
-//    if (_bigImageRequestID) {
-//        [[PHImageManager defaultManager] cancelImageRequest:_bigImageRequestID];
-//    }
-//
-//    _bigImageRequestID = [[TZImageManager manager] requestImageDataForAsset:_model.asset completion:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
-//        [self hideProgressView];
-//    } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
-//        if (self.model.isSelected) {
-//            progress = progress > 0.02 ? progress : 0.02;;
-//            self.progressView.progress = progress;
-//            self.progressView.hidden = NO;
-//            self.imageView.alpha = 0.4;
-//            if (progress >= 1) {
-//                [self hideProgressView];
-//            }
-//        } else {
-//            // 快速连续点几次，会EXC_BAD_ACCESS...
-//            // *stop = YES;
-//            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-//            [self cancelBigImageRequest];
-//        }
-//    }];
+- (void)cellType:(CellTpye)type{
+    switch (type) {
+        case CellTpyeVideo:
+            self.bottomView.hidden = NO;
+            self.videoImgView.hidden = NO;
+            self.timerLabel.hidden = NO;
+            self.selectPhotoButton.hidden = YES;
+            self.selectImageView.hidden = YES;
+            self.timerLabel.text = _model.timeLength;
+            break;
+        case CellTpyeImage:
+            self.bottomView.hidden = YES;
+            self.videoImgView.hidden = YES;
+            self.timerLabel.hidden = YES;
+            self.selectPhotoButton.hidden = NO;
+            self.selectImageView.hidden = NO;
+            break;
+        default:
+            break;
+    }
+    
 }
+
 
 
 - (void)selectPhotoButtonClick:(UIButton *)sender {
@@ -78,13 +85,7 @@
     }
     self.indexLabel.hidden = !sender.isSelected;
     self.selectImageView.image = sender.isSelected ? self.photoSelImage : self.photoDefImage;
-    if (sender.isSelected) {
-//        [UIView showOscillatoryAnimationWithLayer:_selectImageView.layer type:TZOscillatoryAnimationToBigger];
-        // 用户选中了该图片，提前获取一下大图
-        [self requestBigImage];
-    } else { // 取消选中，取消大图的获取
-        [self cancelBigImageRequest];
-    }
+   
 }
 
 - (void)cancelBigImageRequest {
@@ -100,8 +101,17 @@
     [self.contentView bringSubviewToFront:self.indexLabel];
 }
 
-#pragma mark - Lazy load
+- (void)reload:(NSNotification *)noti {
+    DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)noti.object;
+    if (self.model.isSelected) {
+        self.index = [imagePickerVc.selectedAssetIds indexOfObject:self.model.asset.localIdentifier] + 1;
+    }
+    self.indexLabel.hidden = !self.selectPhotoButton.isSelected;
+}
 
+
+
+#pragma mark - Lazy load
 
 - (UIImageView *)imageView {
     if (_imageView == nil) {

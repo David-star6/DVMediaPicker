@@ -18,6 +18,8 @@
 
 /// 用户选中过的图片数组
 @property (nonatomic, strong) NSMutableArray<DVAssetModel *> *selectedModels;
+@property (nonatomic, strong) NSMutableArray *selectedAssetIds;
+
 - (void)addSelectedModel:(DVAssetModel *)model;
 - (void)removeSelectedModel:(DVAssetModel *)model;
 
