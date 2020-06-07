@@ -91,8 +91,13 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "SourceFiles"
-  spec.exclude_files = "Classes/Exclude"
+  spec.source_files = 'DVMediaPicker/**/*.{swift,h,m}'
+  spec.resources     = 'DVMediaPicker/**/*.{png,bundle}'
+    
+  # spec.resource_bundles = { 'DVMediaPicker' => ['DVMediaPicker/**/*.{xib,storyboard,json}'] }
+
+  # spec.exclude_files = "Classes/Exclude"
+
 
   # spec.public_header_files = "Classes/**/*.h"
 

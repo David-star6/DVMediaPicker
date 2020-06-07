@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (Layout)
-
+//categroy 并能添加属性，但不会生成set/get，没有那个成员变量，此处获取的属性，是拼接的值；
 @property (nonatomic) CGFloat dv_left;        ///< Shortcut for frame.origin.x.
 @property (nonatomic) CGFloat dv_top;         ///< Shortcut for frame.origin.y
 @property (nonatomic) CGFloat dv_right;       ///< Shortcut for frame.origin.x + frame.size.width
