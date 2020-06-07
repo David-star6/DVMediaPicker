@@ -1,0 +1,6 @@
+framework module DVMediaPicker {
+  umbrella header "DVMediaPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
