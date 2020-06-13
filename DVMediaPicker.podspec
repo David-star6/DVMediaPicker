@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "DVMediaPicker"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "the mediaPicker can picker video and photo"
 
   spec.homepage     = "https://github.com/Leo-David/DVMediaPicker"
