@@ -13,6 +13,8 @@
 @interface DVMediaPickerContoller : UINavigationController
 @property (nonatomic, assign) NSInteger maxImagesCount;
 
+@property (nonatomic, copy) void(^selectBlock)(NSArray * photos, NSArray * assets);
+
 /// 超时时间，默认为15秒，当取图片时间超过15秒还没有取成功时，会自动dismiss HUD；
 @property (nonatomic, assign) NSInteger timeout;
 

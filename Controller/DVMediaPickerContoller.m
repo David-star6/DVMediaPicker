@@ -125,6 +125,7 @@
 
 #pragma mark -- event
 - (void)cancelButtonClick{
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 - (void)addSelectedModel:(DVAssetModel *)model{

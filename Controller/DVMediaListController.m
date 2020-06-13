@@ -265,6 +265,8 @@ static CGFloat itemMargin = 5;
 - (void)didGetAllPhotos:(NSArray *)photos assets:(NSArray *)assets infoArr:(NSArray *)infoArr {
     DVMediaPickerContoller *imagePickerVc = (DVMediaPickerContoller *)self.navigationController;
     [imagePickerVc hideProgressHUD];
+    imagePickerVc.selectBlock != nil ?  imagePickerVc.selectBlock(photos, assets) : NULL;
+    [imagePickerVc dismissViewControllerAnimated:true completion:nil];
 }
 
 
