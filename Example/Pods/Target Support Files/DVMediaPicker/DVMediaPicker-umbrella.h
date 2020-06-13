@@ -10,19 +10,19 @@
 #endif
 #endif
 
-#import "DVAlbumCell.h"
-#import "DVAlbumModel.h"
-#import "DVAssetCell.h"
 #import "DVMediaListController.h"
-#import "DVMediaManager.h"
 #import "DVMediaPickerContoller.h"
 #import "DVPhotoPreviewController.h"
-#import "DVPhotoPreviewViewCell.h"
-#import "DVProgressView.h"
+#import "DVAlbumModel.h"
+#import "DVMediaManager.h"
 #import "DVRequestOperation.h"
-#import "DVVideoPlayerController.h"
 #import "NSBundle+ImagePicker.h"
 #import "UIView+Layout.h"
+#import "DVAlbumCell.h"
+#import "DVAssetCell.h"
+#import "DVPhotoPreviewViewCell.h"
+#import "DVProgressView.h"
+#import "DVVideoPlayerController.h"
 
 FOUNDATION_EXPORT double DVMediaPickerVersionNumber;
 FOUNDATION_EXPORT const unsigned char DVMediaPickerVersionString[];

@@ -20,7 +20,8 @@
     // Override point for customization after application launch.
     
     self.window = application.delegate.window;
-    self.window.rootViewController = [[ViewController alloc] init];
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     [self.window makeKeyAndVisible];
     
     return YES;

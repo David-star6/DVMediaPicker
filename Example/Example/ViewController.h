@@ -13,3 +13,6 @@
 
 @end
 
+@interface  PhotoCell : UICollectionViewCell
+- (void)setPhoto:(UIImage *)image;
+@end
