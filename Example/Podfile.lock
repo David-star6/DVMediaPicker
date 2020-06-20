@@ -1,5 +1,5 @@
 PODS:
-  - DVMediaPicker (0.0.1)
+  - DVMediaPicker (0.0.3)
 
 DEPENDENCIES:
   - DVMediaPicker (from `../DVMediaPicker.podspec`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../DVMediaPicker.podspec"
 
 SPEC CHECKSUMS:
-  DVMediaPicker: 5580882ac9fdfa043fe1d0e4e00684586f023342
+  DVMediaPicker: c07b6a88bd19bdf5bae7ac72bc1d29bb6b427214
 
 PODFILE CHECKSUM: 9a100a513f0565f86f8c456294b2396d1f535a27
 

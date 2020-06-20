@@ -7,49 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E716FD233D26CD46D9936ED984FBFA3 /* DVAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFBBFBDA6BD9722F029F8B6151A4BC4 /* DVAssetCell.m */; };
+		0E716FD233D26CD46D9936ED984FBFA3 /* DVAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1627E0091F373B0ECB5379EBAED10B8D /* DVAssetCell.m */; };
 		10653B07B1EF3458A45D00399AF5F882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		1F5C5E6EEE2FCB5C1E2C833395E5ED3F /* DVRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A4072579EBB2EF86D2E5C27E1EE6BE3C /* DVRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2680556C7DD629167C0228D2CF735777 /* DVMediaManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9457BCD491E8EFD04846C7FAF4117AC3 /* DVMediaManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		28E4A3C52687A49ADDC069F3B7588A0D /* DVAlbumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 91FBE1368099299C54FA30CFA9F040F9 /* DVAlbumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		399E87B4F1A9BCEEF6BF6454CE2EB61C /* ic_videoSendIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D6A638A406B901283E13F346A4621A /* ic_videoSendIcon@2x.png */; };
-		3B1C6DA6205D23CDE7C8FF6C754E6C28 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7B35E3750AAC7C46FC7B4006BF2216 /* UIView+Layout.m */; };
-		3FC01454D03607B1D43C1FE88E396487 /* DVMediaListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B65CDB81E34FFDFD2CBF19CA97BEDE /* DVMediaListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F5C5E6EEE2FCB5C1E2C833395E5ED3F /* DVRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 223CF81C756A91FEA72079F2092402E8 /* DVRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2680556C7DD629167C0228D2CF735777 /* DVMediaManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 100FEC2DFA1DDAE983CD0989ED42EB85 /* DVMediaManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28E4A3C52687A49ADDC069F3B7588A0D /* DVAlbumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D1545064DAC43A379E0C0DAADF752468 /* DVAlbumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		399E87B4F1A9BCEEF6BF6454CE2EB61C /* ic_videoSendIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EF6EBCFBBC2831D953AE30D1CF838 /* ic_videoSendIcon@2x.png */; };
+		3B1C6DA6205D23CDE7C8FF6C754E6C28 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5299AFF266E3112BEECAE44C60632AB7 /* UIView+Layout.m */; };
+		3FC01454D03607B1D43C1FE88E396487 /* DVMediaListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 45E5F7504531B6A53850BD796C689A82 /* DVMediaListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		485F4D5ED61841BB618EEA8601747CB0 /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5CD16051A6E8F77ACC2B5EC182F497 /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B240D136D0358CDE061578A40E97E41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		4CE756F8205C8C2B54B7AF5B7B53E20B /* DVPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4666C0E4176DDCB69B51B893222A4C /* DVPhotoPreviewController.m */; };
+		4CE756F8205C8C2B54B7AF5B7B53E20B /* DVPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 742FA3FFAFC67AED3EC5F2CB345ACF8C /* DVPhotoPreviewController.m */; };
 		52D10768544148D48585432CDE78F94A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		6250325B0A8CAA38375435199BDABDF2 /* DVRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 019F49529C62F05B0C57A80CE326A360 /* DVRequestOperation.m */; };
-		63A1F3033209D0D084FC74374BFC144E /* DVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DED636C0A7C7E5668A5AE9D48FCAA30C /* DVProgressView.m */; };
-		677C98BB08E805E5923762076EBC0DD9 /* DVMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C193F052F6BB8EF0BF6F03A697CC896 /* DVMediaManager.m */; };
-		67C1EE71D4EF979817F7A4CA09D263A9 /* DVMediaPickerContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = A7316654D113EDCE2062A7013314C04D /* DVMediaPickerContoller.m */; };
-		6BCAE20ABB00C595EBB61D8EA85924F1 /* ic_image_ normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4A88D79D07EFFDAE1D66E87645F91 /* ic_image_ normal@2x.png */; };
-		72DF29EE19F65D5EE35926C383F66A01 /* DVVideoPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = E2C1EBD4A0BC4EA333966F8FF4C27C80 /* DVVideoPlayerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6250325B0A8CAA38375435199BDABDF2 /* DVRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BBEE55DCCFFD4BC375E007CC8904D /* DVRequestOperation.m */; };
+		63A1F3033209D0D084FC74374BFC144E /* DVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2011CFA1A5B42D735738A5EB172CA6 /* DVProgressView.m */; };
+		677C98BB08E805E5923762076EBC0DD9 /* DVMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE93635A9312D7CC26710A684B5EF37 /* DVMediaManager.m */; };
+		67C1EE71D4EF979817F7A4CA09D263A9 /* DVMediaPickerContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F295A4952268942989BF822EB7E92FF /* DVMediaPickerContoller.m */; };
+		6BCAE20ABB00C595EBB61D8EA85924F1 /* ic_image_ normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3047CB3E7EE9EA88D0FF68F63F9E21F /* ic_image_ normal@2x.png */; };
+		72DF29EE19F65D5EE35926C383F66A01 /* DVVideoPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8017BC8AA5F6EDBF048C3CCA10D93648 /* DVVideoPlayerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72E15E4D6AF2694946F7538F9028EBAF /* Pods-Example-ExampleUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF54E9A251968F8BF102DA9BFC40597 /* Pods-Example-ExampleUITests-dummy.m */; };
-		7699A8F7445185BD53A567BBDCAD8FCF /* DVProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4171477A6881A6B5AD4CE737692DCC48 /* DVProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78A2D152405A6F12A60CDEF841D460BE /* DVMediaPickerContoller.h in Headers */ = {isa = PBXBuildFile; fileRef = DD9E89E4180DBCD2524478C477F51148 /* DVMediaPickerContoller.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7699A8F7445185BD53A567BBDCAD8FCF /* DVProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = A2FD9C71B11810B2C6CB1E31CB32B5A9 /* DVProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78A2D152405A6F12A60CDEF841D460BE /* DVMediaPickerContoller.h in Headers */ = {isa = PBXBuildFile; fileRef = 39E6506063A7DF15286641A0BB532A15 /* DVMediaPickerContoller.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7ABA2F28893EE56D4BFDA1E9D9B2D8B7 /* Pods-ExampleTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 81DBB735FB54499DF2C61DDED5F821C8 /* Pods-ExampleTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D24C8D4E5B4224750342936416DC195 /* DVMediaListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BB71EC0A469FB294EB15E847D1330A /* DVMediaListController.m */; };
+		7D24C8D4E5B4224750342936416DC195 /* DVMediaListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E586B33273892C4ABF1E9E703D0EE2 /* DVMediaListController.m */; };
 		830A2D2565F9AF0C2F1D2F8450F8C29C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		8734B49E866F87C65E415314AA40D50D /* UIView+Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1506AE966CFB06634E0633AF338CC0A1 /* UIView+Layout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9134A2484E5358F7B54E1F5D6C6D7880 /* DVAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2484DD4698E557C0773B8DE3B65872 /* DVAlbumModel.m */; };
-		9E66EB56CA197B6162918FFCA7F4469B /* ic_vider_playHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74C49D13BED044107ACC6602B2B38B5 /* ic_vider_playHL@2x.png */; };
-		A2979C79FF19556E7D500274647D8C7B /* NSBundle+ImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 8519F63359687D8F3C53FF1723465007 /* NSBundle+ImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A436EE21179DBE9322912367FB33C02B /* DVPhotoPreviewViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 260B995A719BC64E92C8476ABDA10193 /* DVPhotoPreviewViewCell.m */; };
-		A53AEF3B1C0D5951CF8125E9B5FE1268 /* DVAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A65F19292AD67C1F16832C4C5D21CB /* DVAlbumCell.m */; };
-		A53D109A961D6A2B45047238E15D116B /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70BE9BF22592174324AEEDE52B9C9A07 /* Resources.bundle */; };
-		AA769294C31628913F35EA10878B51A0 /* DVAlbumCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CCB530C470D4ECEEE222C81B9D6BB6B4 /* DVAlbumCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1F9B3A5366D61D8C0BFD59EC42B6619 /* DVPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B401F9A6A75663AE2B4E639E9D1E2ED6 /* DVPhotoPreviewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA9D37C5E93D1FCE43D8AAD889BE11A1 /* DVPhotoPreviewViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B5465715C5EC0F480074EDF69C0DD1B /* DVPhotoPreviewViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDEFBC75885A71280F18AC15F23D9591 /* DVAssetCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 840403D63436D15A41CB3129704F343B /* DVAssetCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8734B49E866F87C65E415314AA40D50D /* UIView+Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E43A816CEB1C8FAB4250656CE8C3EDF /* UIView+Layout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9134A2484E5358F7B54E1F5D6C6D7880 /* DVAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE73A798050A4EFFC1BE634F54805CFE /* DVAlbumModel.m */; };
+		9E66EB56CA197B6162918FFCA7F4469B /* ic_vider_playHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D147AA865A02820A7BA93732F5C8918E /* ic_vider_playHL@2x.png */; };
+		A2979C79FF19556E7D500274647D8C7B /* NSBundle+ImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E52F97A7DCABEDD66C7D2D3DAF090 /* NSBundle+ImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A436EE21179DBE9322912367FB33C02B /* DVPhotoPreviewViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B49A8EE489F3FAB90A1898F0A0975B /* DVPhotoPreviewViewCell.m */; };
+		A53AEF3B1C0D5951CF8125E9B5FE1268 /* DVAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD2044B71B4B816862E50AE5FE4FABD /* DVAlbumCell.m */; };
+		A53D109A961D6A2B45047238E15D116B /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA2055311600770413B7401E633A9312 /* Resources.bundle */; };
+		AA769294C31628913F35EA10878B51A0 /* DVAlbumCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A19545C1A51A71D2E67A84A8B3355014 /* DVAlbumCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1F9B3A5366D61D8C0BFD59EC42B6619 /* DVPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C8EA9E8C036B4265CCDF6C1E28C5B5F /* DVPhotoPreviewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA9D37C5E93D1FCE43D8AAD889BE11A1 /* DVPhotoPreviewViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7128CE8E3C936CA2FB5D09414F55B307 /* DVPhotoPreviewViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDEFBC75885A71280F18AC15F23D9591 /* DVAssetCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0AD91B340A20DAF43D9A4569C957B6 /* DVAssetCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D40B0CD7725BE41DFF7CE3356ED84FB9 /* Pods-ExampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE105D59EBDFD32F7430EDE0B2410 /* Pods-ExampleTests-dummy.m */; };
-		D7C5E220A69ADF7A58B58EF3B08A9758 /* DVMediaPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D53BABD009A6032CA1E87E4C9FAD2DFC /* DVMediaPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8FFE668D666EB29877C5D61FBE7C428 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB417F00EEB37D0716F183078438D65 /* nav_back@2x.png */; };
-		E7387376189CF104796CF6DC1F9F553B /* ic_video_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 873A96B50039FF759DCDD31084561375 /* ic_video_play@2x.png */; };
-		EFAF2D0C7E7C4AC1A2A2A2C4522D7832 /* ic_image_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC95E27CF4C90D1C34AA22DEE78728 /* ic_image_select@2x.png */; };
-		F081093783DB937AA696173F0941E4F1 /* DVMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05345DBA6052FBB8C51538F1D7E4238F /* DVMediaPicker-dummy.m */; };
-		F3C8941F41DAC6C05701DF63E7E6BA54 /* DVVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92554F0D6106DED50377D768E81C8EF5 /* DVVideoPlayerController.m */; };
-		F76239A4D8CDB2898680DC758FE1B48A /* NSBundle+ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3AA7904F88180FC61C2C42DFD455C1 /* NSBundle+ImagePicker.m */; };
+		D7C5E220A69ADF7A58B58EF3B08A9758 /* DVMediaPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 59B2C1755EF6BF83C167DD3013EB69A4 /* DVMediaPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8FFE668D666EB29877C5D61FBE7C428 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AD3A3E1A628EAB28FC058489A9801 /* nav_back@2x.png */; };
+		E7387376189CF104796CF6DC1F9F553B /* ic_video_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9599A95D69701B28C7ACCB21A3BA59A2 /* ic_video_play@2x.png */; };
+		EFAF2D0C7E7C4AC1A2A2A2C4522D7832 /* ic_image_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11D6790C0284118E19E86FFFA02938AF /* ic_image_select@2x.png */; };
+		F081093783DB937AA696173F0941E4F1 /* DVMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF79BA48B669EC5B113C4811FD430EE /* DVMediaPicker-dummy.m */; };
+		F3C8941F41DAC6C05701DF63E7E6BA54 /* DVVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F19B404940BE74F9B90CBD846D7393 /* DVVideoPlayerController.m */; };
+		F76239A4D8CDB2898680DC758FE1B48A /* NSBundle+ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113172D5600856038483876D4D388 /* NSBundle+ImagePicker.m */; };
 		FD1935DC7486CD6B0B1424FCD536B63C /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FBC06CAAEF08C2C01DD809446573E3 /* Pods-Example-dummy.m */; };
 		FE0FA4E970E969BB5E31A4D48803092A /* Pods-Example-ExampleUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2008F8A1CC62875424F7404BAF8D613C /* Pods-Example-ExampleUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -79,78 +79,79 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		019F49529C62F05B0C57A80CE326A360 /* DVRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVRequestOperation.m; sourceTree = "<group>"; };
-		02BB71EC0A469FB294EB15E847D1330A /* DVMediaListController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVMediaListController.m; sourceTree = "<group>"; };
-		05345DBA6052FBB8C51538F1D7E4238F /* DVMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DVMediaPicker-dummy.m"; sourceTree = "<group>"; };
+		03DDEC25B062E75C313478C0E2A7D2B3 /* DVMediaPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DVMediaPicker.modulemap; sourceTree = "<group>"; };
 		06DF40AC31BCDE82E11A89ACC5C33213 /* Pods-Example-ExampleUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example-ExampleUITests.modulemap"; sourceTree = "<group>"; };
 		083C15FCF1211B5435B3E42C182E7EE3 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
-		0B5465715C5EC0F480074EDF69C0DD1B /* DVPhotoPreviewViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVPhotoPreviewViewCell.h; sourceTree = "<group>"; };
-		1506AE966CFB06634E0633AF338CC0A1 /* UIView+Layout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
-		15B65CDB81E34FFDFD2CBF19CA97BEDE /* DVMediaListController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVMediaListController.h; sourceTree = "<group>"; };
+		0DF79BA48B669EC5B113C4811FD430EE /* DVMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DVMediaPicker-dummy.m"; sourceTree = "<group>"; };
+		100FEC2DFA1DDAE983CD0989ED42EB85 /* DVMediaManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVMediaManager.h; sourceTree = "<group>"; };
+		11D6790C0284118E19E86FFFA02938AF /* ic_image_select@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_image_select@2x.png"; sourceTree = "<group>"; };
+		15F19B404940BE74F9B90CBD846D7393 /* DVVideoPlayerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVVideoPlayerController.m; sourceTree = "<group>"; };
+		1627E0091F373B0ECB5379EBAED10B8D /* DVAssetCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVAssetCell.m; sourceTree = "<group>"; };
 		168E30A406BEF02CC78C267AA5469BCF /* Pods-Example-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		19E7FCE1D13D7DE74D40478F1AD30D0F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		1C7BEA697A968E617C16973BA2153745 /* DVMediaPicker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = DVMediaPicker.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1E1EF6EBCFBBC2831D953AE30D1CF838 /* ic_videoSendIcon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_videoSendIcon@2x.png"; sourceTree = "<group>"; };
+		1EE93635A9312D7CC26710A684B5EF37 /* DVMediaManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVMediaManager.m; sourceTree = "<group>"; };
 		1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2008F8A1CC62875424F7404BAF8D613C /* Pods-Example-ExampleUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-ExampleUITests-umbrella.h"; sourceTree = "<group>"; };
+		223CF81C756A91FEA72079F2092402E8 /* DVRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVRequestOperation.h; sourceTree = "<group>"; };
 		22BCA2BE4DC2A2561F9A4E949116977E /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		260B995A719BC64E92C8476ABDA10193 /* DVPhotoPreviewViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVPhotoPreviewViewCell.m; sourceTree = "<group>"; };
-		2DFBBFBDA6BD9722F029F8B6151A4BC4 /* DVAssetCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVAssetCell.m; sourceTree = "<group>"; };
-		2EEC95E27CF4C90D1C34AA22DEE78728 /* ic_image_select@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_image_select@2x.png"; sourceTree = "<group>"; };
+		2C3E52F97A7DCABEDD66C7D2D3DAF090 /* NSBundle+ImagePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ImagePicker.h"; sourceTree = "<group>"; };
+		2E5BBEE55DCCFFD4BC375E007CC8904D /* DVRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVRequestOperation.m; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		348E0331C57C4A8AF7EBA7314AAFC6A2 /* DVMediaPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DVMediaPicker-Info.plist"; sourceTree = "<group>"; };
-		36944DE5C1838A277E953AFDC2453BB1 /* DVMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DVMediaPicker-prefix.pch"; sourceTree = "<group>"; };
+		332D05DBB733F2FCA037419F99510DA6 /* DVMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DVMediaPicker-prefix.pch"; sourceTree = "<group>"; };
 		37767CDB6517932834F2615A3E40766A /* Pods-Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Info.plist"; sourceTree = "<group>"; };
+		39E6506063A7DF15286641A0BB532A15 /* DVMediaPickerContoller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVMediaPickerContoller.h; sourceTree = "<group>"; };
 		39ECFFAEE4D2F9A34763392A4E42B689 /* Pods-Example-ExampleUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-ExampleUITests-Info.plist"; sourceTree = "<group>"; };
-		3C193F052F6BB8EF0BF6F03A697CC896 /* DVMediaManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVMediaManager.m; sourceTree = "<group>"; };
-		3C4666C0E4176DDCB69B51B893222A4C /* DVPhotoPreviewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVPhotoPreviewController.m; sourceTree = "<group>"; };
-		4171477A6881A6B5AD4CE737692DCC48 /* DVProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVProgressView.h; sourceTree = "<group>"; };
+		3F295A4952268942989BF822EB7E92FF /* DVMediaPickerContoller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVMediaPickerContoller.m; sourceTree = "<group>"; };
+		45D113172D5600856038483876D4D388 /* NSBundle+ImagePicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ImagePicker.m"; sourceTree = "<group>"; };
+		45E5F7504531B6A53850BD796C689A82 /* DVMediaListController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVMediaListController.h; sourceTree = "<group>"; };
 		4A9DFFAED89609D1BBEB26F6B9E67146 /* Pods-ExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		554FF9C8FD55E27785E7A38304DB6CD5 /* DVMediaPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DVMediaPicker.modulemap; sourceTree = "<group>"; };
+		5299AFF266E3112BEECAE44C60632AB7 /* UIView+Layout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		59B2C1755EF6BF83C167DD3013EB69A4 /* DVMediaPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DVMediaPicker-umbrella.h"; sourceTree = "<group>"; };
+		5C8EA9E8C036B4265CCDF6C1E28C5B5F /* DVPhotoPreviewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVPhotoPreviewController.h; sourceTree = "<group>"; };
+		5E43A816CEB1C8FAB4250656CE8C3EDF /* UIView+Layout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		5E8AD3A3E1A628EAB28FC058489A9801 /* nav_back@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
 		630CABE8F692FCDBFD1B122A2D0CE388 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ExampleTests.framework; path = "Pods-ExampleTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65054D976DC0CD626FCA2E2CEC8E1A25 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		68E586B33273892C4ABF1E9E703D0EE2 /* DVMediaListController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVMediaListController.m; sourceTree = "<group>"; };
 		6B5CBCD908C73EFCED61BD98460F05EF /* Pods-Example-ExampleUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-ExampleUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		70BE9BF22592174324AEEDE52B9C9A07 /* Resources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Resources.bundle; path = DVMediaPicker/Resources.bundle; sourceTree = "<group>"; };
+		7128CE8E3C936CA2FB5D09414F55B307 /* DVPhotoPreviewViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVPhotoPreviewViewCell.h; sourceTree = "<group>"; };
+		742FA3FFAFC67AED3EC5F2CB345ACF8C /* DVPhotoPreviewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVPhotoPreviewController.m; sourceTree = "<group>"; };
+		8017BC8AA5F6EDBF048C3CCA10D93648 /* DVVideoPlayerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVVideoPlayerController.h; sourceTree = "<group>"; };
 		81DBB735FB54499DF2C61DDED5F821C8 /* Pods-ExampleTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ExampleTests-umbrella.h"; sourceTree = "<group>"; };
-		840403D63436D15A41CB3129704F343B /* DVAssetCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVAssetCell.h; sourceTree = "<group>"; };
-		84F26063FB8C0000B53AF8FC33068E0F /* DVMediaPicker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = DVMediaPicker.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		8519F63359687D8F3C53FF1723465007 /* NSBundle+ImagePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ImagePicker.h"; sourceTree = "<group>"; };
-		873A96B50039FF759DCDD31084561375 /* ic_video_play@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_video_play@2x.png"; sourceTree = "<group>"; };
 		8AAFFFF03FE7D0FCEA61724821452BED /* Pods-ExampleTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		8DF54E9A251968F8BF102DA9BFC40597 /* Pods-Example-ExampleUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-ExampleUITests-dummy.m"; sourceTree = "<group>"; };
 		8F44706E4B57CF36D06A180BB27F867C /* Pods-ExampleTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ExampleTests.modulemap"; sourceTree = "<group>"; };
-		91FBE1368099299C54FA30CFA9F040F9 /* DVAlbumModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVAlbumModel.h; sourceTree = "<group>"; };
-		92554F0D6106DED50377D768E81C8EF5 /* DVVideoPlayerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVVideoPlayerController.m; sourceTree = "<group>"; };
-		93D6A638A406B901283E13F346A4621A /* ic_videoSendIcon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_videoSendIcon@2x.png"; sourceTree = "<group>"; };
-		9457BCD491E8EFD04846C7FAF4117AC3 /* DVMediaManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVMediaManager.h; sourceTree = "<group>"; };
+		93FB8E21E02E59D126715BB7F9E001EB /* DVMediaPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DVMediaPicker-Info.plist"; sourceTree = "<group>"; };
+		9599A95D69701B28C7ACCB21A3BA59A2 /* ic_video_play@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_video_play@2x.png"; sourceTree = "<group>"; };
+		9B66E7FAF158D9E9EE61204506E8096D /* DVMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DVMediaPicker.xcconfig; sourceTree = "<group>"; };
 		9D5CD16051A6E8F77ACC2B5EC182F497 /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9FB417F00EEB37D0716F183078438D65 /* nav_back@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
-		A4072579EBB2EF86D2E5C27E1EE6BE3C /* DVRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVRequestOperation.h; sourceTree = "<group>"; };
-		A4A65F19292AD67C1F16832C4C5D21CB /* DVAlbumCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVAlbumCell.m; sourceTree = "<group>"; };
-		A7316654D113EDCE2062A7013314C04D /* DVMediaPickerContoller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVMediaPickerContoller.m; sourceTree = "<group>"; };
-		AF6592DB7A9817B9F475FB1B14E7DA5D /* DVMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DVMediaPicker.xcconfig; sourceTree = "<group>"; };
-		B401F9A6A75663AE2B4E639E9D1E2ED6 /* DVPhotoPreviewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVPhotoPreviewController.h; sourceTree = "<group>"; };
+		A19545C1A51A71D2E67A84A8B3355014 /* DVAlbumCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVAlbumCell.h; sourceTree = "<group>"; };
+		A2FD9C71B11810B2C6CB1E31CB32B5A9 /* DVProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVProgressView.h; sourceTree = "<group>"; };
+		A3047CB3E7EE9EA88D0FF68F63F9E21F /* ic_image_ normal@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_image_ normal@2x.png"; sourceTree = "<group>"; };
+		ABD2044B71B4B816862E50AE5FE4FABD /* DVAlbumCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVAlbumCell.m; sourceTree = "<group>"; };
+		AE73A798050A4EFFC1BE634F54805CFE /* DVAlbumModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVAlbumModel.m; sourceTree = "<group>"; };
+		B1B49A8EE489F3FAB90A1898F0A0975B /* DVPhotoPreviewViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVPhotoPreviewViewCell.m; sourceTree = "<group>"; };
 		B4A31CBB45DDDEBA8FA40982BEC6791E /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		B94D627257D2F2237217D3AF6336D5FC /* DVMediaPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DVMediaPicker.framework; path = DVMediaPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB3AA7904F88180FC61C2C42DFD455C1 /* NSBundle+ImagePicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ImagePicker.m"; sourceTree = "<group>"; };
 		C54078A65F1E57154BA0DF9535462C54 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		CA86459B834B286D472EF909A2AAD76D /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		CCB530C470D4ECEEE222C81B9D6BB6B4 /* DVAlbumCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVAlbumCell.h; sourceTree = "<group>"; };
 		D01F4C7BCBE74F68C0C06788351AB25D /* Pods-Example-ExampleUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-ExampleUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		D0C2C30C622762D8C6870F740EB57F61 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		D4D4A88D79D07EFFDAE1D66E87645F91 /* ic_image_ normal@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_image_ normal@2x.png"; sourceTree = "<group>"; };
+		D147AA865A02820A7BA93732F5C8918E /* ic_vider_playHL@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_vider_playHL@2x.png"; sourceTree = "<group>"; };
+		D1545064DAC43A379E0C0DAADF752468 /* DVAlbumModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVAlbumModel.h; sourceTree = "<group>"; };
 		D4FE8F3E50AE4C4BB91C118C55D7CAFB /* Pods-ExampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D53BABD009A6032CA1E87E4C9FAD2DFC /* DVMediaPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DVMediaPicker-umbrella.h"; sourceTree = "<group>"; };
-		DBAD42F6B768DFC50206C0CB334C0484 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		DD2484DD4698E557C0773B8DE3B65872 /* DVAlbumModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVAlbumModel.m; sourceTree = "<group>"; };
-		DD9E89E4180DBCD2524478C477F51148 /* DVMediaPickerContoller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVMediaPickerContoller.h; sourceTree = "<group>"; };
-		DED636C0A7C7E5668A5AE9D48FCAA30C /* DVProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVProgressView.m; sourceTree = "<group>"; };
-		E2C1EBD4A0BC4EA333966F8FF4C27C80 /* DVVideoPlayerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVVideoPlayerController.h; sourceTree = "<group>"; };
+		DF0AD91B340A20DAF43D9A4569C957B6 /* DVAssetCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DVAssetCell.h; sourceTree = "<group>"; };
+		DF2011CFA1A5B42D735738A5EB172CA6 /* DVProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DVProgressView.m; sourceTree = "<group>"; };
 		E5A8990B6200C07FBCB436D4F7700B41 /* Pods-Example-ExampleUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-ExampleUITests-frameworks.sh"; sourceTree = "<group>"; };
-		E74C49D13BED044107ACC6602B2B38B5 /* ic_vider_playHL@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ic_vider_playHL@2x.png"; sourceTree = "<group>"; };
 		E8E5A2DDEE01CA7716145CA1B033B7A3 /* Pods_Example_ExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example_ExampleUITests.framework; path = "Pods-Example-ExampleUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA7B35E3750AAC7C46FC7B4006BF2216 /* UIView+Layout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		EC2BD0236D0E528428DAF27AF2E6B5AF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		EC4DE105D59EBDFD32F7430EDE0B2410 /* Pods-ExampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ExampleTests-dummy.m"; sourceTree = "<group>"; };
 		EDF1B691258C4A37532DD7BC9E5588F0 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
 		F8FBC06CAAEF08C2C01DD809446573E3 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
+		FA2055311600770413B7401E633A9312 /* Resources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Resources.bundle; path = DVMediaPicker/Resources.bundle; sourceTree = "<group>"; };
 		FE701A3C3F479432B9ACCD94B36B4F83 /* Pods-Example-ExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-ExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,50 +191,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B7194768D9FD9F41F0B73463D88BB7E /* Views */ = {
+		2F525DD39AA59E0E206DF36103C232BB /* DVMediaPicker */ = {
 			isa = PBXGroup;
 			children = (
-				CCB530C470D4ECEEE222C81B9D6BB6B4 /* DVAlbumCell.h */,
-				A4A65F19292AD67C1F16832C4C5D21CB /* DVAlbumCell.m */,
-				840403D63436D15A41CB3129704F343B /* DVAssetCell.h */,
-				2DFBBFBDA6BD9722F029F8B6151A4BC4 /* DVAssetCell.m */,
-				0B5465715C5EC0F480074EDF69C0DD1B /* DVPhotoPreviewViewCell.h */,
-				260B995A719BC64E92C8476ABDA10193 /* DVPhotoPreviewViewCell.m */,
-				4171477A6881A6B5AD4CE737692DCC48 /* DVProgressView.h */,
-				DED636C0A7C7E5668A5AE9D48FCAA30C /* DVProgressView.m */,
-				E2C1EBD4A0BC4EA333966F8FF4C27C80 /* DVVideoPlayerController.h */,
-				92554F0D6106DED50377D768E81C8EF5 /* DVVideoPlayerController.m */,
-			);
-			name = Views;
-			path = DVMediaPicker/Views;
-			sourceTree = "<group>";
-		};
-		22B7AEA88A89935557C790A62A3BDF41 /* Utlis */ = {
-			isa = PBXGroup;
-			children = (
-				9457BCD491E8EFD04846C7FAF4117AC3 /* DVMediaManager.h */,
-				3C193F052F6BB8EF0BF6F03A697CC896 /* DVMediaManager.m */,
-				A4072579EBB2EF86D2E5C27E1EE6BE3C /* DVRequestOperation.h */,
-				019F49529C62F05B0C57A80CE326A360 /* DVRequestOperation.m */,
-				8519F63359687D8F3C53FF1723465007 /* NSBundle+ImagePicker.h */,
-				BB3AA7904F88180FC61C2C42DFD455C1 /* NSBundle+ImagePicker.m */,
-				1506AE966CFB06634E0633AF338CC0A1 /* UIView+Layout.h */,
-				EA7B35E3750AAC7C46FC7B4006BF2216 /* UIView+Layout.m */,
-			);
-			name = Utlis;
-			path = DVMediaPicker/Utlis;
-			sourceTree = "<group>";
-		};
-		31475CC872B872164579482A6E7BE10F /* DVMediaPicker */ = {
-			isa = PBXGroup;
-			children = (
-				E6E8E4A47246F471B9505DC4D8B9072A /* Controller */,
-				98873EB6504A547F9636E4929892FE56 /* Model */,
-				4E9F270CFB57C43C8BB5F527C1535F32 /* Pod */,
-				B04BA6C9014556809920FB498436C7ED /* Resources */,
-				E32EE7309194353E8F681F0DF2A6ED41 /* Support Files */,
-				22B7AEA88A89935557C790A62A3BDF41 /* Utlis */,
-				1B7194768D9FD9F41F0B73463D88BB7E /* Views */,
+				B3ECCFD8A3AF94ED9C932A16BE2B6BD5 /* Controller */,
+				D9A1BFBF11D0FED1662EAFA85369490A /* Model */,
+				F34661E3A4E3E5CA81E0452D4662D159 /* Pod */,
+				FAD29FB2485291CD9442AEB5A729BEDA /* Resources */,
+				C0E6528BF2F787CCC4331B2F9AF902AA /* Support Files */,
+				9783D36120A8345387EE450B6E2BBE3B /* Utlis */,
+				AE1D0303FE9A56DE9197533B9529D422 /* Views */,
 			);
 			name = DVMediaPicker;
 			path = ../..;
@@ -272,29 +239,6 @@
 			path = "Target Support Files/Pods-ExampleTests";
 			sourceTree = "<group>";
 		};
-		4DF418D30B240F140C650823D1B5BEBD /* Resources.bundle */ = {
-			isa = PBXGroup;
-			children = (
-				D4D4A88D79D07EFFDAE1D66E87645F91 /* ic_image_ normal@2x.png */,
-				2EEC95E27CF4C90D1C34AA22DEE78728 /* ic_image_select@2x.png */,
-				873A96B50039FF759DCDD31084561375 /* ic_video_play@2x.png */,
-				93D6A638A406B901283E13F346A4621A /* ic_videoSendIcon@2x.png */,
-				E74C49D13BED044107ACC6602B2B38B5 /* ic_vider_playHL@2x.png */,
-				9FB417F00EEB37D0716F183078438D65 /* nav_back@2x.png */,
-			);
-			name = Resources.bundle;
-			path = DVMediaPicker/Resources.bundle;
-			sourceTree = "<group>";
-		};
-		4E9F270CFB57C43C8BB5F527C1535F32 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				84F26063FB8C0000B53AF8FC33068E0F /* DVMediaPicker.podspec */,
-				DBAD42F6B768DFC50206C0CB334C0484 /* LICENSE */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		744EE5B2C2BCD8717193D237DC620516 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,31 +249,74 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		98873EB6504A547F9636E4929892FE56 /* Model */ = {
+		9783D36120A8345387EE450B6E2BBE3B /* Utlis */ = {
 			isa = PBXGroup;
 			children = (
-				91FBE1368099299C54FA30CFA9F040F9 /* DVAlbumModel.h */,
-				DD2484DD4698E557C0773B8DE3B65872 /* DVAlbumModel.m */,
+				100FEC2DFA1DDAE983CD0989ED42EB85 /* DVMediaManager.h */,
+				1EE93635A9312D7CC26710A684B5EF37 /* DVMediaManager.m */,
+				223CF81C756A91FEA72079F2092402E8 /* DVRequestOperation.h */,
+				2E5BBEE55DCCFFD4BC375E007CC8904D /* DVRequestOperation.m */,
+				2C3E52F97A7DCABEDD66C7D2D3DAF090 /* NSBundle+ImagePicker.h */,
+				45D113172D5600856038483876D4D388 /* NSBundle+ImagePicker.m */,
+				5E43A816CEB1C8FAB4250656CE8C3EDF /* UIView+Layout.h */,
+				5299AFF266E3112BEECAE44C60632AB7 /* UIView+Layout.m */,
 			);
-			name = Model;
-			path = DVMediaPicker/Model;
+			name = Utlis;
+			path = DVMediaPicker/Utlis;
 			sourceTree = "<group>";
 		};
 		9DBD15A5936D4B409A82C7060C2FFFB9 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				31475CC872B872164579482A6E7BE10F /* DVMediaPicker */,
+				2F525DD39AA59E0E206DF36103C232BB /* DVMediaPicker */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		B04BA6C9014556809920FB498436C7ED /* Resources */ = {
+		A9EA1B512969750872A07A06327FE535 /* Resources.bundle */ = {
 			isa = PBXGroup;
 			children = (
-				70BE9BF22592174324AEEDE52B9C9A07 /* Resources.bundle */,
-				4DF418D30B240F140C650823D1B5BEBD /* Resources.bundle */,
+				A3047CB3E7EE9EA88D0FF68F63F9E21F /* ic_image_ normal@2x.png */,
+				11D6790C0284118E19E86FFFA02938AF /* ic_image_select@2x.png */,
+				9599A95D69701B28C7ACCB21A3BA59A2 /* ic_video_play@2x.png */,
+				1E1EF6EBCFBBC2831D953AE30D1CF838 /* ic_videoSendIcon@2x.png */,
+				D147AA865A02820A7BA93732F5C8918E /* ic_vider_playHL@2x.png */,
+				5E8AD3A3E1A628EAB28FC058489A9801 /* nav_back@2x.png */,
 			);
-			name = Resources;
+			name = Resources.bundle;
+			path = DVMediaPicker/Resources.bundle;
+			sourceTree = "<group>";
+		};
+		AE1D0303FE9A56DE9197533B9529D422 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A19545C1A51A71D2E67A84A8B3355014 /* DVAlbumCell.h */,
+				ABD2044B71B4B816862E50AE5FE4FABD /* DVAlbumCell.m */,
+				DF0AD91B340A20DAF43D9A4569C957B6 /* DVAssetCell.h */,
+				1627E0091F373B0ECB5379EBAED10B8D /* DVAssetCell.m */,
+				7128CE8E3C936CA2FB5D09414F55B307 /* DVPhotoPreviewViewCell.h */,
+				B1B49A8EE489F3FAB90A1898F0A0975B /* DVPhotoPreviewViewCell.m */,
+				A2FD9C71B11810B2C6CB1E31CB32B5A9 /* DVProgressView.h */,
+				DF2011CFA1A5B42D735738A5EB172CA6 /* DVProgressView.m */,
+				8017BC8AA5F6EDBF048C3CCA10D93648 /* DVVideoPlayerController.h */,
+				15F19B404940BE74F9B90CBD846D7393 /* DVVideoPlayerController.m */,
+			);
+			name = Views;
+			path = DVMediaPicker/Views;
+			sourceTree = "<group>";
+		};
+		B3ECCFD8A3AF94ED9C932A16BE2B6BD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45E5F7504531B6A53850BD796C689A82 /* DVMediaListController.h */,
+				68E586B33273892C4ABF1E9E703D0EE2 /* DVMediaListController.m */,
+				39E6506063A7DF15286641A0BB532A15 /* DVMediaPickerContoller.h */,
+				3F295A4952268942989BF822EB7E92FF /* DVMediaPickerContoller.m */,
+				5C8EA9E8C036B4265CCDF6C1E28C5B5F /* DVPhotoPreviewController.h */,
+				742FA3FFAFC67AED3EC5F2CB345ACF8C /* DVPhotoPreviewController.m */,
+			);
+			name = Controller;
+			path = DVMediaPicker/Controller;
 			sourceTree = "<group>";
 		};
 		B41BF4F0E507B70BEC08FFA77BDC5958 /* Products */ = {
@@ -351,6 +338,20 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		C0E6528BF2F787CCC4331B2F9AF902AA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				03DDEC25B062E75C313478C0E2A7D2B3 /* DVMediaPicker.modulemap */,
+				9B66E7FAF158D9E9EE61204506E8096D /* DVMediaPicker.xcconfig */,
+				0DF79BA48B669EC5B113C4811FD430EE /* DVMediaPicker-dummy.m */,
+				93FB8E21E02E59D126715BB7F9E001EB /* DVMediaPicker-Info.plist */,
+				332D05DBB733F2FCA037419F99510DA6 /* DVMediaPicker-prefix.pch */,
+				59B2C1755EF6BF83C167DD3013EB69A4 /* DVMediaPicker-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/DVMediaPicker";
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
@@ -370,32 +371,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E32EE7309194353E8F681F0DF2A6ED41 /* Support Files */ = {
+		D9A1BFBF11D0FED1662EAFA85369490A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				554FF9C8FD55E27785E7A38304DB6CD5 /* DVMediaPicker.modulemap */,
-				AF6592DB7A9817B9F475FB1B14E7DA5D /* DVMediaPicker.xcconfig */,
-				05345DBA6052FBB8C51538F1D7E4238F /* DVMediaPicker-dummy.m */,
-				348E0331C57C4A8AF7EBA7314AAFC6A2 /* DVMediaPicker-Info.plist */,
-				36944DE5C1838A277E953AFDC2453BB1 /* DVMediaPicker-prefix.pch */,
-				D53BABD009A6032CA1E87E4C9FAD2DFC /* DVMediaPicker-umbrella.h */,
+				D1545064DAC43A379E0C0DAADF752468 /* DVAlbumModel.h */,
+				AE73A798050A4EFFC1BE634F54805CFE /* DVAlbumModel.m */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/DVMediaPicker";
-			sourceTree = "<group>";
-		};
-		E6E8E4A47246F471B9505DC4D8B9072A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				15B65CDB81E34FFDFD2CBF19CA97BEDE /* DVMediaListController.h */,
-				02BB71EC0A469FB294EB15E847D1330A /* DVMediaListController.m */,
-				DD9E89E4180DBCD2524478C477F51148 /* DVMediaPickerContoller.h */,
-				A7316654D113EDCE2062A7013314C04D /* DVMediaPickerContoller.m */,
-				B401F9A6A75663AE2B4E639E9D1E2ED6 /* DVPhotoPreviewController.h */,
-				3C4666C0E4176DDCB69B51B893222A4C /* DVPhotoPreviewController.m */,
-			);
-			name = Controller;
-			path = DVMediaPicker/Controller;
+			name = Model;
+			path = DVMediaPicker/Model;
 			sourceTree = "<group>";
 		};
 		EBE7EEC219B31D2547DFFD6C6A2E9D63 /* Pods-Example */ = {
@@ -413,6 +396,25 @@
 			);
 			name = "Pods-Example";
 			path = "Target Support Files/Pods-Example";
+			sourceTree = "<group>";
+		};
+		F34661E3A4E3E5CA81E0452D4662D159 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				1C7BEA697A968E617C16973BA2153745 /* DVMediaPicker.podspec */,
+				EC2BD0236D0E528428DAF27AF2E6B5AF /* LICENSE */,
+				19E7FCE1D13D7DE74D40478F1AD30D0F /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		FAD29FB2485291CD9442AEB5A729BEDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA2055311600770413B7401E633A9312 /* Resources.bundle */,
+				A9EA1B512969750872A07A06327FE535 /* Resources.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -758,7 +760,7 @@
 		};
 		4E4B9EAF73BA8023A9F620FB6577368F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF6592DB7A9817B9F475FB1B14E7DA5D /* DVMediaPicker.xcconfig */;
+			baseConfigurationReference = 9B66E7FAF158D9E9EE61204506E8096D /* DVMediaPicker.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1070,7 +1072,7 @@
 		};
 		F542EB69CE9BCC097B3C6A044E90E35B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF6592DB7A9817B9F475FB1B14E7DA5D /* DVMediaPicker.xcconfig */;
+			baseConfigurationReference = 9B66E7FAF158D9E9EE61204506E8096D /* DVMediaPicker.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

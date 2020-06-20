@@ -32,7 +32,7 @@
 
 - (void)openPickerController {
     
-    DVMediaPickerContoller * vc = [[DVMediaPickerContoller alloc] init];
+    DVMediaPickerContoller * vc = [[DVMediaPickerContoller alloc] initWithMaxImagesCount:4];
     __weak typeof(self) weakSelf = self;
 
     vc.selectBlock = ^(NSArray * photos, NSArray * assets) {
