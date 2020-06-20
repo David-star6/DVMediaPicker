@@ -7,7 +7,9 @@
 选择图片以后，获取到完整的图片和资源
 
 - 安装
-``` pod 'DVMediaPicker'
+
+```
+pod 'DVMediaPicker'
 ```
 
 - 使用
